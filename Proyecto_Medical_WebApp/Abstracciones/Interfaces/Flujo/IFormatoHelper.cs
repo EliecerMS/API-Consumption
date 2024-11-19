@@ -7,5 +7,9 @@ namespace Abstracciones.Interfaces.Flujo
 
         IEnumerable<PacientesMedicoBD> DarFormatoListaPacientes(IEnumerable<PacientesMedicoBD> pacientesSinFormato);
 
+        public DetallesPaciente DarFormatoDetallesPaciente(DetallesPaciente detallesPaciente);
+
+        IEnumerable<PacientesPadecimientosBD> DarFormatoListaPacientesYPadecimientos(IEnumerable<PacientesPadecimientosBD> pacientesYPadecimientosSinFormato);
+
     }
 }
