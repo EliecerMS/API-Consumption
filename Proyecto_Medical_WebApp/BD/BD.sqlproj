@@ -69,5 +69,7 @@
     <Build Include="dbo\Tables\Enfermedad.sql" />
     <Build Include="dbo\Tables\Cita.sql" />
     <Build Include="dbo\Stored Procedures\PacientesMedico.sql" />
+    <Build Include="dbo\Stored Procedures\PacientesPadecimientos.sql" />
+    <Build Include="dbo\Stored Procedures\DetallesPaciente.sql" />
   </ItemGroup>
 </Project>
