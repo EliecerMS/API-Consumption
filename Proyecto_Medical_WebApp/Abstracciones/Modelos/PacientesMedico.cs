@@ -7,6 +7,7 @@
         public int peso { get; set; }
         public string motivo { get; set; }
         public string fecha_Cita { get; set; }
+        public string Padecimiento { get; set; }
     }
 
     public class PacientesMedicoBD : PacientesMedico

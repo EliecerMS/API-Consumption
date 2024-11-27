@@ -10,6 +10,8 @@ namespace Abstracciones.Interfaces.Flujo
         public DetallesPaciente DarFormatoDetallesPaciente(DetallesPaciente detallesPaciente);
 
         IEnumerable<PacientesPadecimientosBD> DarFormatoListaPacientesYPadecimientos(IEnumerable<PacientesPadecimientosBD> pacientesYPadecimientosSinFormato);
+        IEnumerable<MedicamentoBD> DarFormatoListaMedicamentos(IEnumerable<MedicamentoBD> medicamentos);
+        Medicamento DarFormatoMedicamento(MedicamentoBD medicamento);
 
     }
 }
