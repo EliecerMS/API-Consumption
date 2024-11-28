@@ -7,9 +7,11 @@ namespace Flujo.Helpers
     public class Formato : IFormatoHelper
     {
         private IMedicoReglas _medicoReglas;
-        private IPacienteReglas _pacienteReglas;
+        private IMedicamentoReglas _medicamentoReglas;
+       
 
-        public Formato(IMedicoReglas medicoReglas, IPacienteReglas pacienteReglas)
+
+        public Formato(IMedicoReglas medicoReglas)
         {
             _medicoReglas = medicoReglas;
             _pacienteReglas = pacienteReglas;
@@ -59,6 +61,6 @@ namespace Flujo.Helpers
             }
             return resultadoConFormato;
         }
-
     }
+    
 }
