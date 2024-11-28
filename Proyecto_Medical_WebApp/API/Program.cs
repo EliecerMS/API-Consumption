@@ -21,6 +21,10 @@ builder.Services.AddScoped<IMedicoFlujo, MedicoFlujo>();
 builder.Services.AddScoped<IMedicoReglas, MedicoReglas>();
 
 
+builder.Services.AddScoped<IPacienteDA, PacienteDA>();
+builder.Services.AddScoped<IPacienteFlujo, PacienteFlujo>();
+builder.Services.AddScoped<IPacienteReglas, PacienteReglas>();
+
 
 
 builder.Services.AddScoped<IFormatoHelper, Formato>();
