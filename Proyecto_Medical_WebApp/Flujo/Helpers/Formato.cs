@@ -7,11 +7,14 @@ namespace Flujo.Helpers
     public class Formato : IFormatoHelper
     {
         private IMedicoReglas _medicoReglas;
+        private IPacienteReglas _pacienteReglas;
+
         private IMedicamentoReglas _medicamentoReglas;
-       
 
 
-        public Formato(IMedicoReglas medicoReglas)
+
+
+        public Formato(IMedicoReglas medicoReglas, IPacienteReglas pacienteReglas)
         {
             _medicoReglas = medicoReglas;
             _pacienteReglas = pacienteReglas;
@@ -61,6 +64,24 @@ namespace Flujo.Helpers
             }
             return resultadoConFormato;
         }
+        public IEnumerable<MedicamentoBD> DarFormatoListaMedicamentos(IEnumerable<MedicamentoBD> medicamentosSinFormato)
+        {
+            List<MedicamentoBD> resultadoConFormato = new List<MedicamentoBD>();
+
+            foreach (var medicamento in medicamentosSinFormato)
+            {
+                resultadoConFormato.Add(_medicamentoReglas.DarFormatoNombre(medicamento));
+
+            }
+            return resultadoConFormato;
+        }
+
+        public Medicamento DarFormatoMedicamento(MedicamentoBD medicamento)
+        {
+            if (medicamento == null)
+                return null;
+            return _medicamentoReglas.DarFormatoNombre(medicamento);
+        }
     }
-    
+
 }
