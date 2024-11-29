@@ -19,7 +19,7 @@ namespace API.Controllers
             _pacienteFlujo = pacienteFlujo;
             _logger = logger;
         }
-        [HttpGet("MedicoObtenerDetallesPacientePorId/{idPaciente}")]
+        [HttpGet("Medico_ObtenerDetallesPacientePorId/{idPaciente}")]
         public async Task<IActionResult> ObtenerDetallesPacientePorId(int idPaciente)
         {
             _logger.LogInformation("Obteniendo detalles del paciente");
@@ -29,7 +29,7 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
-        [HttpGet("PacienteObtenerDetallesMedicacionPorIdMedicacion/{idMedicacionPaciente}")]
+        [HttpGet("Paciente_ObtenerDetallesMedicacionPorIdMedicacion/{idMedicacionPaciente}")]
         public async Task<IActionResult> ObtenerPacienteDetallesMedicacion(int idMedicacionPaciente)
         {
             _logger.LogInformation("Obteniendo detalles del medicamento");
@@ -39,7 +39,7 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
-        [HttpGet("PacienteObtenerDetallesPadecimientoPorIds/{idPaciente}/{idEnfermedadDiagnostico}/{idCita}/{idMedico}/")]
+        [HttpGet("Paciente_ObtenerDetallesPadecimientoPorIds/{idPaciente}/{idEnfermedadDiagnostico}/{idCita}/{idMedico}/")]
         public async Task<IActionResult> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico)
         {
             _logger.LogInformation("Obteniendo detalles del padecimiento");
@@ -49,7 +49,7 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
-        [HttpGet("MedicoObtenerListaPacientes/{idMedico}")]
+        [HttpGet("Medico_ObtenerListaPacientes/{idMedico}")]
         public async Task<IActionResult> ObtenerPacientesMedico(int idMedico)
         {
             _logger.LogInformation("Obteniendo pacientes");
@@ -59,7 +59,7 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
-        [HttpGet("MedicoObtenerListaPacientesYPadecimientos/{idMedico}")]
+        [HttpGet("Medico_ObtenerListaPacientesYPadecimientos/{idMedico}")]
         public async Task<IActionResult> ObtenerPacientesYPadecimientos(int idMedico)
         {
             _logger.LogInformation("Obteniendo pacientes y padecimientos");
