@@ -6,7 +6,7 @@ namespace Reglas
 {
     public class MedicoReglas : IMedicoReglas
     {
-        public DetallesPaciente DarFomartoDetallesPaciente(DetallesPaciente detallesPaciente)
+        public Medico_DetallesPaciente DarFomartoDetallesPaciente(Medico_DetallesPaciente detallesPaciente)
         {
             detallesPaciente.Enfermedad = detallesPaciente.Enfermedad.ToUpper();
             detallesPaciente.Medicamento = detallesPaciente.Medicamento.ToUpper();

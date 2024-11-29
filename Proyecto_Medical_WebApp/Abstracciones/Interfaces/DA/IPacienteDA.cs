@@ -4,8 +4,8 @@ namespace Abstracciones.Interfaces.DA
 {
     public interface IPacienteDA
     {
-        Task<PacienteDetallesMedicacion> PacienteObtenerDetallesMedicacion(int IdMedicacionPaciente);
+        Task<Paciente_DetallesMedicacion> PacienteObtenerDetallesMedicacion(int IdMedicacionPaciente);
 
-        Task<PacienteDetallesPadecimiento> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico);
+        Task<Paciente_DetallesPadecimiento> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico);
     }
 }

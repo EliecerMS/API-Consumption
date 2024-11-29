@@ -4,8 +4,8 @@ namespace Abstracciones.Interfaces.Flujo
 {
     public interface IPacienteFlujo
     {
-        Task<PacienteDetallesMedicacion> PacienteObtenerDetallesMedicacion(int IdMedicacionPaciente);
+        Task<Paciente_DetallesMedicacion> PacienteObtenerDetallesMedicacion(int IdMedicacionPaciente);
 
-        Task<PacienteDetallesPadecimiento> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico);
+        Task<Paciente_DetallesPadecimiento> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico);
     }
 }

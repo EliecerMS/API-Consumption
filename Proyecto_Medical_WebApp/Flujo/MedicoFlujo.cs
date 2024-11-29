@@ -15,7 +15,7 @@ namespace Flujo
             _formatoHelper = formatoHelper;
         }
 
-        public async Task<DetallesPaciente> ObtenerDetallesPaciente(int IdPaciente)
+        public async Task<Medico_DetallesPaciente> ObtenerDetallesPaciente(int IdPaciente)
         {
             var detallesPacienteSinformato = await _medicoDA.ObtenerDetallesPaciente(IdPaciente);
             if (detallesPacienteSinformato == null)

@@ -20,21 +20,21 @@ namespace Flujo.Helpers
             _pacienteReglas = pacienteReglas;
         }
 
-        public PacienteDetallesMedicacion DarFomartoPacienteDetallesMedicacion(PacienteDetallesMedicacion pacienteDetallesMedicacion)
+        public Paciente_DetallesMedicacion DarFomartoPacienteDetallesMedicacion(Paciente_DetallesMedicacion pacienteDetallesMedicacion)
         {
             if (pacienteDetallesMedicacion == null)
                 return null;
             return _pacienteReglas.DarFomartoPacienteDetallesMedicacion(pacienteDetallesMedicacion);
         }
 
-        public PacienteDetallesPadecimiento DarFomartoPacienteDetallesPadecimiento(PacienteDetallesPadecimiento pacienteDetallesPadecimiento)
+        public Paciente_DetallesPadecimiento DarFomartoPacienteDetallesPadecimiento(Paciente_DetallesPadecimiento pacienteDetallesPadecimiento)
         {
             if (pacienteDetallesPadecimiento == null)
                 return null;
             return _pacienteReglas.DarFomartoPacienteDetallesPadecimiento(pacienteDetallesPadecimiento);
         }
 
-        public DetallesPaciente DarFormatoDetallesPaciente(DetallesPaciente detallesPaciente)
+        public Medico_DetallesPaciente DarFormatoDetallesPaciente(Medico_DetallesPaciente detallesPaciente)
         {
             if (detallesPaciente == null)
                 return null;

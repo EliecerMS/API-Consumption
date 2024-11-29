@@ -16,18 +16,18 @@ namespace DA.Dapper
             _sqlConnection = _repositorioDapper.ObtenerRepositorioDapper();
         }
 
-        public async Task<DetallesPaciente> ObtenerDetallesPaciente(int IdPaciente)
+        public async Task<Medico_DetallesPaciente> ObtenerDetallesPaciente(int IdPaciente)
         {
-            DetallesPaciente? resultadoConsulta = await ObtenerDetalles(IdPaciente);
+            Medico_DetallesPaciente? resultadoConsulta = await ObtenerDetalles(IdPaciente);
             if (resultadoConsulta == null)
                 return null;
             return resultadoConsulta;
         }
 
-        private async Task<DetallesPaciente?> ObtenerDetalles(int IdPaciente)
+        private async Task<Medico_DetallesPaciente?> ObtenerDetalles(int IdPaciente)
         {
             string sql = @"DetallesPaciente";
-            var resultadoConsulta = await _sqlConnection.QueryAsync<DetallesPaciente>(sql, new { IdPaciente = IdPaciente });
+            var resultadoConsulta = await _sqlConnection.QueryAsync<Medico_DetallesPaciente>(sql, new { IdPaciente = IdPaciente });
             return resultadoConsulta.FirstOrDefault();
         }
 

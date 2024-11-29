@@ -6,7 +6,7 @@ namespace Reglas
 {
     public class PacienteReglas : IPacienteReglas
     {
-        public PacienteDetallesMedicacion DarFomartoPacienteDetallesMedicacion(PacienteDetallesMedicacion pacienteDetallesMedicacion)
+        public Paciente_DetallesMedicacion DarFomartoPacienteDetallesMedicacion(Paciente_DetallesMedicacion pacienteDetallesMedicacion)
         {
             pacienteDetallesMedicacion.NombreDoctor = pacienteDetallesMedicacion.NombreDoctor.ToUpper();
             pacienteDetallesMedicacion.NombrePadecimiento = pacienteDetallesMedicacion.NombrePadecimiento.ToUpper();
@@ -23,7 +23,7 @@ namespace Reglas
 
         }
 
-        public PacienteDetallesPadecimiento DarFomartoPacienteDetallesPadecimiento(PacienteDetallesPadecimiento pacienteDetallesPadecimiento)
+        public Paciente_DetallesPadecimiento DarFomartoPacienteDetallesPadecimiento(Paciente_DetallesPadecimiento pacienteDetallesPadecimiento)
         {
             pacienteDetallesPadecimiento.NotasDiagnostico = pacienteDetallesPadecimiento.NotasDiagnostico?.ToUpper();
             pacienteDetallesPadecimiento.InstruccionesMedicamento = pacienteDetallesPadecimiento.InstruccionesMedicamento?.ToUpper();

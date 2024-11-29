@@ -1,6 +1,6 @@
 ﻿namespace Abstracciones.Modelos
 {
-    public class PacienteDetallesMedicacion
+    public class Paciente_DetallesMedicacion
     {
         public string NombreDoctor { get; set; }
         public string EmailDoctor { get; set; }

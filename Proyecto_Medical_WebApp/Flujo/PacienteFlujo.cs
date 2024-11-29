@@ -15,7 +15,7 @@ namespace Flujo
             _formatoHelper = formatoHelper;
         }
 
-        public async Task<PacienteDetallesPadecimiento> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico)
+        public async Task<Paciente_DetallesPadecimiento> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico)
         {
             var detallesPadecimientoSinformato = await _pacienteDA.ObtenerPacienteDetallesPadecimiento(idPaciente, idEnfermedadDiagnostico, idCita, idMedico);
             if (detallesPadecimientoSinformato == null)
@@ -23,7 +23,7 @@ namespace Flujo
             return _formatoHelper.DarFomartoPacienteDetallesPadecimiento(detallesPadecimientoSinformato);
         }
 
-        public async Task<PacienteDetallesMedicacion> PacienteObtenerDetallesMedicacion(int IdMedicacionPaciente)
+        public async Task<Paciente_DetallesMedicacion> PacienteObtenerDetallesMedicacion(int IdMedicacionPaciente)
         {
             var detallesMedicacionSinformato = await _pacienteDA.PacienteObtenerDetallesMedicacion(IdMedicacionPaciente);
             if (detallesMedicacionSinformato == null)

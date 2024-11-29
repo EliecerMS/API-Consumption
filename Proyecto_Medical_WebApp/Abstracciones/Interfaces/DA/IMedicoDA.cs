@@ -6,7 +6,7 @@ namespace Abstracciones.Interfaces.DA
     {
         Task<IEnumerable<PacientesMedicoBD>> ObtenerListaPacientes(int medicoId);
 
-        Task<DetallesPaciente> ObtenerDetallesPaciente(int IdPaciente);
+        Task<Medico_DetallesPaciente> ObtenerDetallesPaciente(int IdPaciente);
 
         Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(int medicoId);
 
