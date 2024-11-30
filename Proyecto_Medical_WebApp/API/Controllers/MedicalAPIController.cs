@@ -55,7 +55,7 @@ namespace API.Controllers
         public async Task<IActionResult> ObtenerMedicamento(int Id_Medicamento)
         {
             _logger.LogInformation("Obteniendo medicamentos");
-            var resultado = await _medicoFlujo.ObtenerMedicamento(Id_Medicamento);
+            var resultado = await _medicoFlujo.ObtenerDetalleMedicamento(Id_Medicamento);
             if (resultado == null)
                 return NotFound();
             return Ok(resultado);
