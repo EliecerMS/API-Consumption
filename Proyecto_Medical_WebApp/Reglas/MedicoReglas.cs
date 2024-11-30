@@ -14,6 +14,14 @@ namespace Reglas
             return detallesPaciente;
         }
 
+        public EnfermedadDiagnosticoBD DarFomartoEnfermedadDiagnostico(EnfermedadDiagnosticoBD enfermedadDiagnostico)
+        {
+            enfermedadDiagnostico.Nombre = enfermedadDiagnostico.Nombre.ToUpper();
+            return enfermedadDiagnostico;
+        }
+
+        
+
         public PacientesPadecimientosBD DarFomartoPacienteYPadecimiento(PacientesPadecimientosBD pacienteYPadecimiento)
         {
             pacienteYPadecimiento.NombreCompletoPaciente = pacienteYPadecimiento.NombreCompletoPaciente.ToUpper();
@@ -32,5 +40,16 @@ namespace Reglas
             pacienteMedico.fecha_Cita = fechaCitaAString;
             return pacienteMedico;
         }
+
+        public MedicamentoBD DarFomartoDetalleMedicamento(MedicamentoBD medicamento)
+        {
+            medicamento.Nombre = medicamento.Nombre.ToUpper();
+            DateTime fechaCitaDiaHora = DateTime.ParseExact(medicamento.Fecha, "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            DateOnly fechaCitaSoloFecha = DateOnly.FromDateTime(fechaCitaDiaHora);
+            string fechaCitaAString = fechaCitaSoloFecha.ToString("yyyy-MM-dd");
+            medicamento.Fecha = fechaCitaAString;
+            return medicamento;
+        }
     }
+
 }

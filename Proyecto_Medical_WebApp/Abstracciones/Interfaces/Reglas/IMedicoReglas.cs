@@ -9,5 +9,9 @@ namespace Abstracciones.Interfaces.Reglas
         public Medico_DetallesPaciente DarFomartoDetallesPaciente(Medico_DetallesPaciente detallesPaciente);
 
         public PacientesPadecimientosBD DarFomartoPacienteYPadecimiento(PacientesPadecimientosBD pacienteYPadecimiento);
+
+        public EnfermedadDiagnosticoBD DarFomartoEnfermedadDiagnostico(EnfermedadDiagnosticoBD enfermedadDiagnostico);
+        public MedicamentoBD DarFomartoDetalleMedicamento(MedicamentoBD medicamento);
+        
     }
 }

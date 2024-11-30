@@ -68,7 +68,7 @@ namespace DA.Dapper
             return resultadoConsulta.FirstOrDefault();
         }
 
-        public async Task<MedicamentoBD> ObtenerMedicamento(int Id_Medicamento)
+        public async Task<MedicamentoBD> ObtenerDetalleMedicamento(int Id_Medicamento)
         {
             string sql = @"Medicamento";
             var resultadoConsulta = await _sqlConnection.QueryAsync<MedicamentoBD>(sql, new { Id_Medicamento = Id_Medicamento });

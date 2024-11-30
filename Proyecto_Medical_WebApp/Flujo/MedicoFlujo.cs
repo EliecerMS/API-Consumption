@@ -23,9 +23,12 @@ namespace Flujo
             return _formatoHelper.DarFormatoDetallesPaciente(detallesPacienteSinformato);
         }
 
-        public Task<Medico_EnfermedadDiagnostico> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico)
+        public async Task<Medico_EnfermedadDiagnostico> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico)
         {
-            throw new NotImplementedException();
+            var enfermedadDiagnosticoSinformato = await _medicoDA.ObtenerEnfermedadDiagnostico(Id_EnfermedadDiagnostico);
+            if (enfermedadDiagnosticoSinformato == null)
+                return null;
+            return _formatoHelper.DarFormatoEnfermedadDiagnostico(enfermedadDiagnosticoSinformato);
         }
 
         public async Task<IEnumerable<PacientesMedicoBD>> ObtenerListaPacientes(int idMedico)
@@ -44,9 +47,12 @@ namespace Flujo
             return _formatoHelper.DarFormatoListaPacientesYPadecimientos(pacientesYPadecimientosSinformato);
         }
 
-        public Task<Medico_Medicamento> ObtenerMedicamento(int Id_Medicamento)
+        public async Task<Medico_Medicamento> ObtenerDetalleMedicamento(int Id_Medicamento)
         {
-            throw new NotImplementedException();
+            var medicamentoSinformato = await _medicoDA.ObtenerDetalleMedicamento(Id_Medicamento);
+            if (medicamentoSinformato == null)
+                return null;
+            return _formatoHelper.DarFormatoDetalleMedicamento(medicamentoSinformato);
         }
     }
 }

@@ -41,6 +41,20 @@ namespace Flujo.Helpers
             return _medicoReglas.DarFomartoDetallesPaciente(detallesPaciente);
         }
 
+        public EnfermedadDiagnosticoBD DarFormatoEnfermedadDiagnostico(EnfermedadDiagnosticoBD enfermedadDiagnostico)
+        {
+            if (enfermedadDiagnostico == null)
+                return null;
+            return _medicoReglas.DarFomartoEnfermedadDiagnostico(enfermedadDiagnostico);
+        }
+
+        public MedicamentoBD DarFormatoDetalleMedicamento(MedicamentoBD medicamento)
+        {
+            if (medicamento == null)
+                return null;
+            return _medicoReglas.DarFomartoDetalleMedicamento(medicamento);
+        }
+
         public IEnumerable<PacientesMedicoBD> DarFormatoListaPacientes(IEnumerable<PacientesMedicoBD> pacientesSinFormato)
         {
             List<PacientesMedicoBD> resultadoConFormato = new List<PacientesMedicoBD>();
