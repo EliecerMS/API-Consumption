@@ -18,19 +18,27 @@
 
     <div class="form-group">
         <label class="control-label" asp-for="paciente.Enfermedad"></label>
-        <input class="form-control" asp-for="paciente.Enfermedad" />
+        <input class="form-control" asp-for="paciente.Enfermedad"/>
         <span class="text-danger" asp-validation-for="paciente.Enfermedad"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="paciente.fase_Enfermedad"></label>
+        <input class="form-control" asp-for="paciente.fase_Enfermedad" />
+        <span class="text-danger" asp-validation-for="paciente.fase_Enfermedad"></span>
     </div>
 
     <div class="form-group">
         <label class="control-label" asp-for="paciente.peso"></label>
         <input class="form-control" asp-for="paciente.peso" />
+        @* <input class="form-control" asp-for="modeloEditarPesoAltura.peso"  /> *@
         <span class="text-danger" asp-validation-for="paciente.peso"></span>
     </div>
 
     <div class="form-group">
         <label class="control-label" asp-for="paciente.estatura"></label>
         <input class="form-control" asp-for="paciente.estatura" />
+        @* <input class="form-control" asp-for="modeloEditarPesoAltura.estatura" /> *@
         <span class="text-danger" asp-validation-for="paciente.estatura"></span>
     </div>
 

@@ -12,5 +12,7 @@ namespace Abstracciones.Interfaces.Flujo
 
         Task<Medico_EnfermedadDiagnostico> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico);
         Task<Medico_Medicamento> ObtenerMedicamento(int Id_Medicamento);
+
+        Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion);
     }
 }

@@ -13,5 +13,7 @@ namespace Abstracciones.Interfaces.DA
         Task<EnfermedadDiagnosticoBD> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico);
         Task<MedicamentoBD> ObtenerMedicamento(int Id_Medicamento);
 
+        Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion);
+
     }
 }

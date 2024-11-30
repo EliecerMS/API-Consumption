@@ -14,6 +14,9 @@ namespace Proyecto_Medical_App_Parte_Web.Pages.Medico.Pacientes
         [BindProperty]
         public Medico_DetallesPaciente paciente { get; set; } = default!;
 
+        [BindProperty]
+        public Medico_PesoAltura modeloEditarPesoAltura { get; set; } = default!;
+
         public DetallesPacienteModel(IConfiguracion configuracion)
         {
             _configuracion = configuracion;
@@ -33,6 +36,7 @@ namespace Proyecto_Medical_App_Parte_Web.Pages.Medico.Pacientes
                 var resultado = await respuesta.Content.ReadAsStringAsync();
                 var opciones = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 paciente = JsonSerializer.Deserialize<Medico_DetallesPaciente>(resultado, opciones);
+
             }
 
             return Page();
@@ -48,9 +52,18 @@ namespace Proyecto_Medical_App_Parte_Web.Pages.Medico.Pacientes
             if (!ModelState.IsValid)
                 return Page();
 
+
+
+            Medico_PesoAltura nuevoPesoAltura = new Medico_PesoAltura
+            {
+                peso = paciente.peso,
+                estatura = paciente.estatura
+            };
+
+
             string endpoint = _configuracion.ObtenerMetodo("EditarPesoAltura");
             var cliente = new HttpClient();
-            var respuesta = await cliente.PutAsJsonAsync<Medico_DetallesPaciente>(string.Format(endpoint, paciente.peso.ToString()), paciente);
+            var respuesta = await cliente.PutAsJsonAsync<Medico_PesoAltura>(string.Format(endpoint, paciente.id_Paciente), nuevoPesoAltura);
             respuesta.EnsureSuccessStatusCode();
 
             return RedirectToPage("./Index");

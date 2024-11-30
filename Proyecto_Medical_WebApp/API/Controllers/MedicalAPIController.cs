@@ -1,5 +1,6 @@
 ﻿using Abstracciones.Interfaces.API;
 using Abstracciones.Interfaces.Flujo;
+using Abstracciones.Modelos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -19,6 +20,16 @@ namespace API.Controllers
             _pacienteFlujo = pacienteFlujo;
             _logger = logger;
         }
+
+        [HttpPut("EditarPesoAlturaPaciente/{IdPaciente}")]
+        public async Task<IActionResult> EditarPesoAltura([FromRoute] int IdPaciente, [FromBody] Medico_PesoAltura pacienteInformacion)
+        {
+            var resultado = await _medicoFlujo.EditarPesoAlturaPaciente(IdPaciente, pacienteInformacion);
+            if (resultado == 0)
+                return BadRequest("El paciente a editar no existe");
+            return Ok(resultado);
+        }
+
         [HttpGet("Medico_ObtenerDetallesPacientePorId/{idPaciente}")]
         public async Task<IActionResult> ObtenerDetallesPacientePorId(int idPaciente)
         {

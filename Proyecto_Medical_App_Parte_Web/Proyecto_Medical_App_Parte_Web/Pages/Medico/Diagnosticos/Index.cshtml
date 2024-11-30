@@ -1,0 +1,57 @@
+﻿@page
+@model Proyecto_Medical_App_Parte_Web.Pages.Medico.Diagnosticos.IndexModel
+@{
+}
+
+<h1>Diagnosticos de mis pacientes</h1>
+
+@if (Model.pacientesDiagnosticos == null || !Model.pacientesDiagnosticos.Any())
+{
+    <div class="alert alert-warning">
+        No hay pacientes que mostrar
+    </div>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(modelo => modelo.pacientesDiagnosticos[0].idEnfermedadDiagnostico)
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Diagnostico
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var pacienteDiagnostico in Model.pacientesDiagnosticos)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelo => pacienteDiagnostico.idEnfermedadDiagnostico)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => pacienteDiagnostico.NombreCompletoPaciente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => pacienteDiagnostico.Enfermedad)
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-primary" asp-page="./DetallesDiagnostico" asp-route-id="@pacienteDiagnostico.idEnfermedadDiagnostico"><i class="bi bi-pencil-fill"></i></a>
+                        <a type="button" class="btn btn-danger" asp-page="./EliminarDiagnostico" asp-route-id="@pacienteDiagnostico.idEnfermedadDiagnostico"><i class="bi bi-trash3-fill"></i></a>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}

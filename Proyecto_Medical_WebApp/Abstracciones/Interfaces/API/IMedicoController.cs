@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Abstracciones.Modelos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Abstracciones.Interfaces.API
 {
@@ -11,7 +12,9 @@ namespace Abstracciones.Interfaces.API
         Task<IActionResult> ObtenerPacientesYPadecimientos(int medicoId);
 
         Task<IActionResult> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico);
-        Task<IActionResult> ObtenerMedicamento (int Id_Medicamento);
+        Task<IActionResult> ObtenerMedicamento(int Id_Medicamento);
+
+        Task<IActionResult> EditarPesoAltura(int IdPaciente, Medico_PesoAltura pacienteInformacion);
 
     }
 }
