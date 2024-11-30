@@ -6,4 +6,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Medico\Citas\" />
+    <Folder Include="Pages\Medico\Diagnosticos\" />
+    <Folder Include="Pages\Medico\Medicamentos_Recetados\" />
+    <Folder Include="Pages\Paciente\Citas\" />
+    <Folder Include="Pages\Paciente\Diagnosticos\" />
+    <Folder Include="Pages\Paciente\Medicacion\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Abstracciones\Abstracciones.csproj" />
+    <ProjectReference Include="..\Reglas\Reglas.csproj" />
+  </ItemGroup>
+
 </Project>

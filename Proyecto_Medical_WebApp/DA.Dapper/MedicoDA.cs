@@ -74,4 +74,5 @@ namespace DA.Dapper
             var resultadoConsulta = await _sqlConnection.QueryAsync<MedicamentoBD>(sql, new { Id_Medicamento = Id_Medicamento });
             return resultadoConsulta.FirstOrDefault();
         }
+    }
 }

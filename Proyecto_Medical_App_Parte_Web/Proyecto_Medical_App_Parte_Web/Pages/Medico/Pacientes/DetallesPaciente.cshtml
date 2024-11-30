@@ -1,0 +1,50 @@
+﻿@page
+@model Proyecto_Medical_App_Parte_Web.Pages.Medico.Pacientes.DetallesPacienteModel
+@{
+}
+
+<h1>Detalles paciente</h1>
+
+ <form method="post">
+    <div class="form-group">
+        <label class="control-label" asp-for="paciente.id_Paciente" style="display: none;"></label>
+        <input class="form-control" asp-for="paciente.id_Paciente" style="display: none;" />
+    </div> 
+    <div class="form-group">
+        <label class="control-label" asp-for="paciente.Medicamento"></label>
+        <input class="form-control" asp-for="paciente.Medicamento" />
+        <span class="text-danger" asp-validation-for="paciente.Medicamento"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="paciente.Enfermedad"></label>
+        <input class="form-control" asp-for="paciente.Enfermedad" />
+        <span class="text-danger" asp-validation-for="paciente.Enfermedad"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="paciente.peso"></label>
+        <input class="form-control" asp-for="paciente.peso" />
+        <span class="text-danger" asp-validation-for="paciente.peso"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="paciente.estatura"></label>
+        <input class="form-control" asp-for="paciente.estatura" />
+        <span class="text-danger" asp-validation-for="paciente.estatura"></span>
+    </div>
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <a class="btn btn-primary" asp-page="./Index">Regresar</a>
+        <input type="submit" value="Editar peso y altura" class="btn btn-warning" />
+    </div>
+    </<input type="hidden" asp-for="paciente.id_Paciente" />
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

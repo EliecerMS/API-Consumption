@@ -1,0 +1,69 @@
+﻿@page
+@model Proyecto_Medical_App_Parte_Web.Pages.Medico.Pacientes.IndexModel
+@{
+}
+
+<h1>Mis de pacientes</h1>
+
+@if (Model.pacientes == null || !Model.pacientes.Any())
+{
+    <div class="alert alert-warning">
+        No hay pacientes que mostrar
+    </div>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(modelo => modelo.pacientes[0].id_Paciente)
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Estatura
+                </th>
+                <th>
+                    Peso
+                </th>
+                <th>
+                    Último motivo de cita
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var paciente in Model.pacientes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelo => paciente.id_Paciente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => paciente.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => paciente.estatura)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => paciente.peso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => paciente.motivo)
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-primary" asp-page="./DetallesPaciente" asp-route-id="@paciente.id_Paciente"><i class="bi bi-pencil-fill"></i></a>
+                        <a type="button" class="btn btn-danger" asp-page="./EliminarPaciente" asp-route-id="@paciente.id_Paciente"><i class="bi bi-trash3-fill"></i></a>
+                    </td>
+                   
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}

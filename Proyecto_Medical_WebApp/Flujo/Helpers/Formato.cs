@@ -9,7 +9,7 @@ namespace Flujo.Helpers
         private IMedicoReglas _medicoReglas;
         private IPacienteReglas _pacienteReglas;
 
-        private IMedicamentoReglas _medicamentoReglas;
+        //private IMedicamentoReglas _medicamentoReglas;
 
 
 
@@ -64,24 +64,24 @@ namespace Flujo.Helpers
             }
             return resultadoConFormato;
         }
-        public IEnumerable<MedicamentoBD> DarFormatoListaMedicamentos(IEnumerable<MedicamentoBD> medicamentosSinFormato)
-        {
-            List<MedicamentoBD> resultadoConFormato = new List<MedicamentoBD>();
+        //public IEnumerable<MedicamentoBD> DarFormatoListaMedicamentos(IEnumerable<MedicamentoBD> medicamentosSinFormato)
+        //{
+        //    List<MedicamentoBD> resultadoConFormato = new List<MedicamentoBD>();
 
-            foreach (var medicamento in medicamentosSinFormato)
-            {
-                resultadoConFormato.Add(_medicamentoReglas.DarFormatoNombre(medicamento));
+        //    foreach (var medicamento in medicamentosSinFormato)
+        //    {
+        //        resultadoConFormato.Add(_medicamentoReglas.DarFormatoNombre(medicamento));
 
-            }
-            return resultadoConFormato;
-        }
+        //    }
+        //    return resultadoConFormato;
+        //}
 
-        public Medicamento DarFormatoMedicamento(MedicamentoBD medicamento)
-        {
-            if (medicamento == null)
-                return null;
-            return _medicamentoReglas.DarFormatoNombre(medicamento);
-        }
+        //public Medico_Medicamento DarFormatoMedicamento(MedicamentoBD medicamento)
+        //{
+        //    if (medicamento == null)
+        //        return null;
+        //    return _medicamentoReglas.DarFormatoNombre(medicamento);
+        //}
     }
 
 }

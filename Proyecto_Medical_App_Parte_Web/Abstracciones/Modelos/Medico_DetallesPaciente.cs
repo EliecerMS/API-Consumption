@@ -8,6 +8,5 @@
         public int peso { get; set; }
         public int estatura { get; set; }
         public int id_Paciente { get; set; }
-
     }
 }
