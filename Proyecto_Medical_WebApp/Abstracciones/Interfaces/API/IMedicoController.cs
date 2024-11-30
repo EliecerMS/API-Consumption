@@ -10,5 +10,8 @@ namespace Abstracciones.Interfaces.API
 
         Task<IActionResult> ObtenerPacientesYPadecimientos(int medicoId);
 
+        Task<IActionResult> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico);
+        Task<IActionResult> ObtenerMedicamento (int Id_Medicamento);
+
     }
 }

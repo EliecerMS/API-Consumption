@@ -29,6 +29,29 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
+
+        [HttpGet("Medico_ObtenerEnfermedadDiagnostico/{Id_EnfermedadDiagnostico}")]
+        public async Task<IActionResult> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico)
+        {
+            _logger.LogInformation("Obteniendo Enfermedades con su Diagnostico");
+            var resultado = await _medicoFlujo.ObtenerEnfermedadDiagnostico(Id_EnfermedadDiagnostico);
+            if (resultado == null)
+                return NotFound();
+            return Ok(resultado);
+        }
+
+        [HttpGet("Medico_ObtenerMedicamento/{Id_Medicamento}")]
+        public async Task<IActionResult> ObtenerMedicamento(int Id_Medicamento)
+        {
+            _logger.LogInformation("Obteniendo medicamentos");
+            var resultado = await _medicoFlujo.ObtenerMedicamento(Id_Medicamento);
+            if (resultado == null)
+                return NotFound();
+            return Ok(resultado);
+        }
+
+
+
         [HttpGet("Paciente_ObtenerDetallesMedicacionPorIdMedicacion/{idMedicacionPaciente}")]
         public async Task<IActionResult> ObtenerPacienteDetallesMedicacion(int idMedicacionPaciente)
         {
@@ -68,5 +91,6 @@ namespace API.Controllers
                 return NoContent();
             return Ok(resultado);
         }
+
     }
 }

@@ -10,5 +10,8 @@ namespace Abstracciones.Interfaces.DA
 
         Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(int medicoId);
 
+        Task<EnfermedadDiagnosticoBD> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico);
+        Task<MedicamentoBD> ObtenerMedicamento(int Id_Medicamento);
+
     }
 }

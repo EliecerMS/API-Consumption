@@ -60,5 +60,18 @@ namespace DA.Dapper
                 throw new Exception("Error obteniendo los detalles de padecimientos de los pacientes");
             }
         }
-    }
+
+        public async Task<EnfermedadDiagnosticoBD> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico)
+        {
+            string sql = @"EnfermedadDiagnostico";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<EnfermedadDiagnosticoBD>(sql, new { Id_EnfermedadDiagnostico = Id_EnfermedadDiagnostico });
+            return resultadoConsulta.FirstOrDefault();
+        }
+
+        public async Task<MedicamentoBD> ObtenerMedicamento(int Id_Medicamento)
+        {
+            string sql = @"Medicamento";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<MedicamentoBD>(sql, new { Id_Medicamento = Id_Medicamento });
+            return resultadoConsulta.FirstOrDefault();
+        }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Abstracciones.Modelos
 {
-    public class EnfermedadDiagnostico
+    public class Medico_EnfermedadDiagnostico
     {
 
         public string Nombre { get; set; }
@@ -8,8 +8,8 @@
         public string Notas { get; set; }
 
     }
-    public class EnfermedadDiagnosticoBD : EnfermedadDiagnostico
+    public class EnfermedadDiagnosticoBD : Medico_EnfermedadDiagnostico
     {
-        public Guid Id_EnfermedadDiagnosticoBD { get; set; }
+        public Guid Id_EnfermedadDiagnostico { get; set; }
     }
 }
