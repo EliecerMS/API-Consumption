@@ -78,24 +78,20 @@ namespace Flujo.Helpers
             }
             return resultadoConFormato;
         }
-        //public IEnumerable<MedicamentoBD> DarFormatoListaMedicamentos(IEnumerable<MedicamentoBD> medicamentosSinFormato)
-        //{
-        //    List<MedicamentoBD> resultadoConFormato = new List<MedicamentoBD>();
 
-        //    foreach (var medicamento in medicamentosSinFormato)
-        //    {
-        //        resultadoConFormato.Add(_medicamentoReglas.DarFormatoNombre(medicamento));
+        public IEnumerable<PacienteMedicamentoBD> DarFormatoListaPacienteMedicamento(IEnumerable<PacienteMedicamentoBD> PacienteMedicamentoSinFormato)
+        {
+            List<PacienteMedicamentoBD> resultadoConFormato = new List<PacienteMedicamentoBD>();
 
-        //    }
-        //    return resultadoConFormato;
-        //}
+            foreach (var pacienteMedicamento in PacienteMedicamentoSinFormato)
+            {
+                resultadoConFormato.Add(_medicoReglas.DarFormatoPacienteMedicamento(pacienteMedicamento));
 
-        //public Medico_Medicamento DarFormatoMedicamento(MedicamentoBD medicamento)
-        //{
-        //    if (medicamento == null)
-        //        return null;
-        //    return _medicamentoReglas.DarFormatoNombre(medicamento);
-        //}
+            }
+            return resultadoConFormato;
+        }
+
+        
     }
 
 }

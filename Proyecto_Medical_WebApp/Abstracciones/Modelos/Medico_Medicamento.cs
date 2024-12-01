@@ -3,14 +3,14 @@
     public class Medico_Medicamento
     {
 
-        public string Nombre { get; set; }
-        public string Dosis { get; set; }
-        public string Fecha { get; set; }
-        public string Instrucciones { get; set; }
+        public string nombre { get; set; }
+        public string dosis { get; set; }
+        public string fecha_Preesctrito { get; set; }
+        public string intrucciones { get; set; }
 
     }
     public class MedicamentoBD : Medico_Medicamento
     {
-        public Guid Id_Medicamento { get; set; }
+        public int id_Medicamento { get; set; }
     }
 }

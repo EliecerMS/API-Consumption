@@ -12,6 +12,7 @@ namespace Abstracciones.Interfaces.Reglas
 
         public EnfermedadDiagnosticoBD DarFomartoEnfermedadDiagnostico(EnfermedadDiagnosticoBD enfermedadDiagnostico);
         public MedicamentoBD DarFomartoDetalleMedicamento(MedicamentoBD medicamento);
-        
+        public PacienteMedicamentoBD DarFormatoPacienteMedicamento(PacienteMedicamentoBD pacienteMedicamento);
+
     }
 }

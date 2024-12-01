@@ -29,9 +29,9 @@ namespace Flujo
             return _formatoHelper.DarFormatoDetallesPaciente(detallesPacienteSinformato);
         }
 
-        public async Task<Medico_EnfermedadDiagnostico> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico)
+        public async Task<Medico_EnfermedadDiagnostico> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico)
         {
-            var enfermedadDiagnosticoSinformato = await _medicoDA.ObtenerEnfermedadDiagnostico(Id_EnfermedadDiagnostico);
+            var enfermedadDiagnosticoSinformato = await _medicoDA.ObtenerEnfermedadDiagnostico(id_EnferDiagnostico);
             if (enfermedadDiagnosticoSinformato == null)
                 return null;
             return _formatoHelper.DarFormatoEnfermedadDiagnostico(enfermedadDiagnosticoSinformato);
@@ -53,12 +53,20 @@ namespace Flujo
             return _formatoHelper.DarFormatoListaPacientesYPadecimientos(pacientesYPadecimientosSinformato);
         }
 
-        public async Task<Medico_Medicamento> ObtenerDetalleMedicamento(int Id_Medicamento)
+        public async Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento)
         {
-            var medicamentoSinformato = await _medicoDA.ObtenerDetalleMedicamento(Id_Medicamento);
+            var medicamentoSinformato = await _medicoDA.ObtenerDetalleMedicamento(id_Medicamento);
             if (medicamentoSinformato == null)
                 return null;
             return _formatoHelper.DarFormatoDetalleMedicamento(medicamentoSinformato);
+        }
+
+        public async Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medicacion_Paciente)
+        {
+            var PacienteMedicamentoSinFormato = await _medicoDA.ObtenerListaPacienteMedicamento(id_Medicacion_Paciente);
+            if (!PacienteMedicamentoSinFormato.Any())
+                return PacienteMedicamentoSinFormato;
+            return _formatoHelper.DarFormatoListaPacienteMedicamento(PacienteMedicamentoSinFormato);
         }
     }
 }

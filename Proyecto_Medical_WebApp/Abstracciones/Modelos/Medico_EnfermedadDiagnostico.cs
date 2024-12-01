@@ -3,13 +3,13 @@
     public class Medico_EnfermedadDiagnostico
     {
 
-        public string Nombre { get; set; }
-        public string Fase { get; set; }
-        public string Notas { get; set; }
+        public string nombre { get; set; }
+        public string fase_Enfermedad { get; set; }
+        public string notas_Diagnostico { get; set; }
 
     }
     public class EnfermedadDiagnosticoBD : Medico_EnfermedadDiagnostico
     {
-        public Guid Id_EnfermedadDiagnostico { get; set; }
+        public int id_EnferDiagnostico{ get; set; }
     }
 }

@@ -61,17 +61,17 @@ namespace DA.Dapper
             }
         }
 
-        public async Task<EnfermedadDiagnosticoBD> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico)
+        public async Task<EnfermedadDiagnosticoBD> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico)
         {
-            string sql = @"EnfermedadDiagnostico";
-            var resultadoConsulta = await _sqlConnection.QueryAsync<EnfermedadDiagnosticoBD>(sql, new { Id_EnfermedadDiagnostico = Id_EnfermedadDiagnostico });
+            string sql = @"ObtenerEnfermedadDiagnostico";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<EnfermedadDiagnosticoBD>(sql, new { id_EnferDiagnostico = id_EnferDiagnostico });
             return resultadoConsulta.FirstOrDefault();
         }
 
-        public async Task<MedicamentoBD> ObtenerDetalleMedicamento(int Id_Medicamento)
+        public async Task<MedicamentoBD> ObtenerDetalleMedicamento(int id_Medicamento)
         {
-            string sql = @"Medicamento";
-            var resultadoConsulta = await _sqlConnection.QueryAsync<MedicamentoBD>(sql, new { Id_Medicamento = Id_Medicamento });
+            string sql = @"DetalleMedicamento";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<MedicamentoBD>(sql, new { id_Medicamento = id_Medicamento });
             return resultadoConsulta.FirstOrDefault();
         }
 
@@ -92,6 +92,19 @@ namespace DA.Dapper
             return resultadoConsulta.FirstOrDefault();
         }
 
+        public async Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medicacion_Paciente)
+        {
+            try
+            {
+                string sql = @"ObtenerPacientesMedicamentos";
+                var resultadoConsulta = await _sqlConnection.QueryAsync<PacienteMedicamentoBD>(sql, new { id_Medicacion_Paciente = id_Medicacion_Paciente });
+                return resultadoConsulta;
+            }
+            catch (Exception)
+            {
 
+                throw new Exception("Error obteniendo los pacientes y sus medicamentos de la BD");
+            }
+        }
     }
 }

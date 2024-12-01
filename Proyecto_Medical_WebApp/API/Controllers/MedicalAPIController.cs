@@ -41,21 +41,21 @@ namespace API.Controllers
         }
 
 
-        [HttpGet("Medico_ObtenerEnfermedadDiagnostico/{Id_EnfermedadDiagnostico}")]
-        public async Task<IActionResult> ObtenerEnfermedadDiagnostico(int Id_EnfermedadDiagnostico)
+        [HttpGet("Medico_ObtenerEnfermedadDiagnostico/{id_EnferDiagnostico}")]
+        public async Task<IActionResult> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico)
         {
             _logger.LogInformation("Obteniendo Enfermedades con su Diagnostico");
-            var resultado = await _medicoFlujo.ObtenerEnfermedadDiagnostico(Id_EnfermedadDiagnostico);
+            var resultado = await _medicoFlujo.ObtenerEnfermedadDiagnostico(id_EnferDiagnostico);
             if (resultado == null)
                 return NotFound();
             return Ok(resultado);
         }
 
-        [HttpGet("Medico_ObtenerMedicamento/{Id_Medicamento}")]
-        public async Task<IActionResult> ObtenerMedicamento(int Id_Medicamento)
+        [HttpGet("Medico_ObtenerMedicamento/{id_Medicamento}")]
+        public async Task<IActionResult> ObtenerMedicamento(int id_Medicamento)
         {
             _logger.LogInformation("Obteniendo medicamentos");
-            var resultado = await _medicoFlujo.ObtenerDetalleMedicamento(Id_Medicamento);
+            var resultado = await _medicoFlujo.ObtenerDetalleMedicamento(id_Medicamento);
             if (resultado == null)
                 return NotFound();
             return Ok(resultado);
@@ -83,6 +83,8 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
+        
+
         [HttpGet("Medico_ObtenerListaPacientes/{idMedico}")]
         public async Task<IActionResult> ObtenerPacientesMedico(int idMedico)
         {
@@ -98,6 +100,15 @@ namespace API.Controllers
         {
             _logger.LogInformation("Obteniendo pacientes y padecimientos");
             var resultado = await _medicoFlujo.ObtenerListaPacientesYPadecimientos(idMedico);
+            if (!resultado.Any())
+                return NoContent();
+            return Ok(resultado);
+        }
+        [HttpGet("Medico_ObtenerListaPacienteMedicamento/{id_Medicacion_Paciente}")]
+        public async Task<IActionResult> ObtenerPacienteMedicamento(int id_Medicacion_Paciente)
+        {
+            _logger.LogInformation("Obteniendo pacientes y medicamentos");
+            var resultado = await _medicoFlujo.ObtenerListaPacienteMedicamento(id_Medicacion_Paciente);
             if (!resultado.Any())
                 return NoContent();
             return Ok(resultado);
