@@ -143,6 +143,59 @@ namespace DA.Dapper
             }
         }
 
+        public async Task<IEnumerable<CitaDetallesBD>> ObtenerCitasPendientesPorMedico(int idMedico)
+        {
+            try
+            {
+                string sql = "ObtenerCitasPendientesPorMedico"; // Nombre del procedimiento almacenado
+                var resultadoConsulta = await _sqlConnection.QueryAsync<CitaDetallesBD>(
+                    sql,
+                    new { IdMedico = idMedico },
+                    commandType: CommandType.StoredProcedure
+                );
+                return resultadoConsulta;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al obtener citas pendientes: {ex.Message}");
+            }
+        }
+
+        public async Task<IEnumerable<CitaDetallesBD>> ObtenerCitasAtendidasPorMedico(int idMedico)
+        {
+            try
+            {
+                string sql = "ObtenerCitasAtendidasPorMedico"; // Nombre del procedimiento almacenado
+                var resultadoConsulta = await _sqlConnection.QueryAsync<CitaDetallesBD>(
+                    sql,
+                    new { IdMedico = idMedico },
+                    commandType: CommandType.StoredProcedure
+                );
+                return resultadoConsulta;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al obtener citas atendidas: {ex.Message}");
+            }
+        }
+
+        public async Task<IEnumerable<MedicamentoBD>> ObtenerListaMedicamentos()
+        {
+            try
+            {
+                string sql = "ObtenerListaMedicamentos"; // Nombre del procedimiento almacenado
+                var resultadoConsulta = await _sqlConnection.QueryAsync<MedicamentoBD>(
+                    sql,
+                    commandType: CommandType.StoredProcedure
+                );
+                return resultadoConsulta;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al obtener lista de medicamentos: {ex.Message}");
+            }
+        }
+
     }
 
 }

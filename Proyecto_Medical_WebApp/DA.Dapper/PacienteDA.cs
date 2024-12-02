@@ -45,5 +45,41 @@ namespace DA.Dapper
             var resultadoConsulta = await _sqlConnection.QueryAsync<Paciente_DetallesPadecimiento>(sql, new { IdPaciente = idPaciente, IdEnferDiagnostico = idEnfermedadDiagnostico, IdCita = idCita, IdMedico = idMedico });
             return resultadoConsulta.FirstOrDefault();
         }
+
+        public async Task<IEnumerable<CitaDetallesBD>> ObtenerCitasPendientesPorPaciente(int idPaciente)
+        {
+            try
+            {
+                string sql = "ObtenerCitasPendientesPorPaciente"; // Nombre del procedimiento almacenado
+                var resultadoConsulta = await _sqlConnection.QueryAsync<CitaDetallesBD>(
+                    sql,
+                    new { IdPaciente = idPaciente },
+                    commandType: CommandType.StoredProcedure
+                );
+                return resultadoConsulta;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al obtener citas pendientes del paciente: {ex.Message}");
+            }
+        }
+
+        public async Task<IEnumerable<CitaDetallesBD>> ObtenerCitasAtendidasPorPaciente(int idPaciente)
+        {
+            try
+            {
+                string sql = "ObtenerCitasAtendidasPorPaciente"; // Nombre del procedimiento almacenado
+                var resultadoConsulta = await _sqlConnection.QueryAsync<CitaDetallesBD>(
+                    sql,
+                    new { IdPaciente = idPaciente },
+                    commandType: CommandType.StoredProcedure
+                );
+                return resultadoConsulta;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al obtener citas atendidas del paciente: {ex.Message}");
+            }
+        }
     }
 }

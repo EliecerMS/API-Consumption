@@ -20,5 +20,9 @@ namespace Abstracciones.Interfaces.DA
 
         Task<int> EditarDiagnosticoPaciente(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico);
 
+        Task<IEnumerable<CitaDetallesBD>> ObtenerCitasPendientesPorMedico(int idMedico);
+        Task<IEnumerable<CitaDetallesBD>> ObtenerCitasAtendidasPorMedico(int idMedico);
+        Task<IEnumerable<MedicamentoBD>> ObtenerListaMedicamentos();
+
     }
 }

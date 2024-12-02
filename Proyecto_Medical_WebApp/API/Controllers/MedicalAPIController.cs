@@ -114,6 +114,7 @@ namespace API.Controllers
                 return NoContent();
             return Ok(resultado);
         }
+
         [HttpGet("Medico_ObtenerListaPacienteMedicamento/{id_Medico}")]
         public async Task<IActionResult> ObtenerPacienteMedicamento(int id_Medico)
         {
@@ -151,6 +152,135 @@ namespace API.Controllers
             {
                 _logger.LogError($"Error al editar el diagnóstico: {ex.Message}", ex);
                 return StatusCode(500, "Error interno del servidor.");
+            }
+        }
+
+        [HttpGet("Medico_ObtenerCitasPendientes/{idMedico}")]
+        public async Task<IActionResult> ObtenerCitasPendientesPorMedico(int idMedico)
+        {
+            try
+            {
+                _logger.LogInformation($"Obteniendo citas pendientes para el médico con ID: {idMedico}");
+                var resultado = await _medicoFlujo.ObtenerCitasPendientesPorMedico(idMedico);
+                if (!resultado.Any())
+                    return NoContent();
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error al obtener citas pendientes: {ex.Message}", ex);
+                return StatusCode(500, "Error interno en el servidor.");
+            }
+        }
+
+        [HttpGet("Medico_ObtenerCitasAtendidas/{idMedico}")]
+        public async Task<IActionResult> ObtenerCitasAtendidasPorMedico(int idMedico)
+        {
+            try
+            {
+                _logger.LogInformation($"Obteniendo citas atendidas para el médico con ID: {idMedico}");
+                var resultado = await _medicoFlujo.ObtenerCitasAtendidasPorMedico(idMedico);
+                if (!resultado.Any())
+                    return NoContent();
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error al obtener citas atendidas: {ex.Message}", ex);
+                return StatusCode(500, "Error interno en el servidor.");
+            }
+        }
+
+        [HttpPut("EditarCita/{idCita}")]
+        public async Task<IActionResult> EditarCita(int idCita, [FromBody] Medico_CitaEdicion citaEdicion)
+        {
+            try
+            {
+                if (citaEdicion == null)
+                    return BadRequest("Los datos de la cita son inválidos.");
+
+                var resultado = await _medicoFlujo.EditarCita(idCita, citaEdicion);
+                if (resultado == 0)
+                    return NotFound("La cita no existe o no fue actualizada.");
+
+                return Ok("Cita actualizada correctamente.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error al editar la cita: {ex.Message}", ex);
+                return StatusCode(500, "Error interno del servidor.");
+            }
+        }
+
+        [HttpGet("Paciente_ObtenerCitasPendientes/{idPaciente}")]
+        public async Task<IActionResult> ObtenerCitasPendientesPorPaciente(int idPaciente)
+        {
+            try
+            {
+                _logger.LogInformation($"Obteniendo citas pendientes para el paciente con ID: {idPaciente}");
+                var resultado = await _pacienteFlujo.ObtenerCitasPendientesPorPaciente(idPaciente);
+                if (!resultado.Any())
+                    return NoContent();
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error al obtener citas pendientes: {ex.Message}", ex);
+                return StatusCode(500, "Error interno en el servidor.");
+            }
+        }
+
+        [HttpGet("Paciente_ObtenerCitasAtendidas/{idPaciente}")]
+        public async Task<IActionResult> ObtenerCitasAtendidasPorPaciente(int idPaciente)
+        {
+            try
+            {
+                _logger.LogInformation($"Obteniendo citas atendidas para el paciente con ID: {idPaciente}");
+                var resultado = await _pacienteFlujo.ObtenerCitasAtendidasPorPaciente(idPaciente);
+                if (!resultado.Any())
+                    return NoContent();
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error al obtener citas atendidas: {ex.Message}", ex);
+                return StatusCode(500, "Error interno en el servidor.");
+            }
+        }
+
+        [HttpGet("ObtenerListaMedicamentos")]
+        public async Task<IActionResult> ObtenerListaMedicamentos()
+        {
+            try
+            {
+                _logger.LogInformation("Obteniendo lista de medicamentos.");
+                var resultado = await _medicoFlujo.ObtenerListaMedicamentos();
+                if (!resultado.Any())
+                    return NoContent();
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error al obtener medicamentos: {ex.Message}", ex);
+                return StatusCode(500, "Error interno en el servidor.");
+            }
+        }
+
+        [HttpGet("ObtenerMedicacionesDetalladas")]
+        public async Task<IActionResult> ObtenerMedicacionesDetalladas()
+        {
+            try
+            {
+                _logger.LogInformation("Obteniendo lista detallada de medicaciones.");
+                var resultado = await _medicoFlujo.ObtenerMedicacionesDetalladas();
+                if (!resultado.Any())
+                    return NoContent();
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error al obtener medicaciones detalladas: {ex.Message}", ex);
+                return StatusCode(500, "Error interno en el servidor.");
             }
         }
 
