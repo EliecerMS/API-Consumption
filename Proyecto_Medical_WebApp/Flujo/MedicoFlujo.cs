@@ -53,9 +53,9 @@ namespace Flujo
             return _formatoHelper.DarFormatoListaPacientesYPadecimientos(pacientesYPadecimientosSinformato);
         }
 
-        public async Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento)
+        public async Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento, int id_Paciente)
         {
-            var medicamentoSinformato = await _medicoDA.ObtenerDetalleMedicamento(id_Medicamento);
+            var medicamentoSinformato = await _medicoDA.ObtenerDetalleMedicamento(id_Medicamento, id_Paciente);
             if (medicamentoSinformato == null)
                 return null;
             return _formatoHelper.DarFormatoDetalleMedicamento(medicamentoSinformato);

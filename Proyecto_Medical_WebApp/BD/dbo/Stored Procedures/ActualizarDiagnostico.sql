@@ -1,6 +1,5 @@
-﻿
-CREATE   PROCEDURE ActualizarDiagnostico
-    @id_Paciente INT,
+﻿CREATE PROCEDURE [dbo].[ActualizarDiagnostico]
+    @id_EnferDiagnostico INT,
     @fase_Enfermedad NVARCHAR(50),
     @notas_Diagnostico NVARCHAR(MAX)
 AS
@@ -12,5 +11,5 @@ BEGIN
         fase_Enfermedad = @fase_Enfermedad,
         notas_Diagnostico = @notas_Diagnostico
     WHERE 
-        id_Paciente = @id_Paciente;
+        id_EnferDiagnostico = @id_EnferDiagnostico;
 END;

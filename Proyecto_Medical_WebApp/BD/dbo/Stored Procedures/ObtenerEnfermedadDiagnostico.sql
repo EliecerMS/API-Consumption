@@ -1,11 +1,11 @@
-﻿CREATE PROCEDURE ObtenerEnfermedadDiagnostico
+﻿CREATE PROCEDURE [dbo].[ObtenerEnfermedadDiagnostico]
     @id_EnferDiagnostico INT
 AS
 BEGIN
     SELECT 
-        e.nombre AS NombreEnfermedad,
-        ed.fase_Enfermedad AS FaseEnfermedad,
-        ed.notas_Diagnostico AS NotasDiagnostico
+        e.nombre AS nombre, -- Cambiado para que coincida con el modelo
+        ed.fase_Enfermedad AS fase_Enfermedad,
+        ed.notas_Diagnostico AS notas_Diagnostico
     FROM 
         Enfermedad_Diagnostico ed
     INNER JOIN 

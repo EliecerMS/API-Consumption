@@ -2,6 +2,7 @@
 using Abstracciones.Modelos;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace DA.Dapper
 {
@@ -63,15 +64,25 @@ namespace DA.Dapper
 
         public async Task<EnfermedadDiagnosticoBD> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico)
         {
-            string sql = @"ObtenerEnfermedadDiagnostico";
-            var resultadoConsulta = await _sqlConnection.QueryAsync<EnfermedadDiagnosticoBD>(sql, new { id_EnferDiagnostico = id_EnferDiagnostico });
+            string sql = "ObtenerEnfermedadDiagnostico";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<EnfermedadDiagnosticoBD>(
+                sql,
+                new { id_EnferDiagnostico = id_EnferDiagnostico },
+                commandType: CommandType.StoredProcedure // Especifica que es un procedimiento almacenado
+            );
             return resultadoConsulta.FirstOrDefault();
         }
 
-        public async Task<MedicamentoBD> ObtenerDetalleMedicamento(int id_Medicamento)
+
+        public async Task<MedicamentoBD> ObtenerDetalleMedicamento(int id_Medicamento, int id_Paciente)
         {
             string sql = @"DetalleMedicamento";
-            var resultadoConsulta = await _sqlConnection.QueryAsync<MedicamentoBD>(sql, new { id_Medicamento = id_Medicamento });
+            var parametros = new { id_Medicamento, id_Paciente };
+            var resultadoConsulta = await _sqlConnection.QueryAsync<MedicamentoBD>(
+                sql,
+                parametros,
+                commandType: CommandType.StoredProcedure
+            );
             return resultadoConsulta.FirstOrDefault();
         }
 
@@ -92,30 +103,46 @@ namespace DA.Dapper
             return resultadoConsulta.FirstOrDefault();
         }
 
-        public async Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medicacion_Paciente)
+        public async Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medico)
         {
             try
             {
-                string sql = @"ObtenerPacientesMedicamentos";
-                var resultadoConsulta = await _sqlConnection.QueryAsync<PacienteMedicamentoBD>(sql, new { id_Medicacion_Paciente = id_Medicacion_Paciente });
+                string sql = "ObtenerPacientesMedicamentos";
+                var resultadoConsulta = await _sqlConnection.QueryAsync<PacienteMedicamentoBD>(
+                    sql,
+                    new { id_Medico = id_Medico }, 
+                    commandType: CommandType.StoredProcedure
+                );
                 return resultadoConsulta;
             }
             catch (Exception)
             {
-
                 throw new Exception("Error obteniendo los pacientes y sus medicamentos de la BD");
             }
         }
 
+
         public async Task<int> EditarDiagnosticoPaciente(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico)
         {
-            string sql = @"ActualizarDiagnostico";
-            EnfermedadDiagnosticoBD? resultadoDiagnostico = await ObtenerEnfermedadDiagnostico(id_EnferDiagnostico);
-            if (resultadoDiagnostico == null)
-                return 0;
-            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new { id_EnferDiagnostico = id_EnferDiagnostico, fase_Diagnostico = enfermedadDiagnostico.fase_Enfermedad, notas = enfermedadDiagnostico.notas_Diagnostico });
-            return resultadoConsulta;
+            try
+            {
+                string sql = "ActualizarDiagnostico";
+                var parametros = new
+                {
+                    id_EnferDiagnostico = id_EnferDiagnostico,
+                    fase_Enfermedad = enfermedadDiagnostico.fase_Enfermedad,
+                    notas_Diagnostico = enfermedadDiagnostico.notas_Diagnostico
+                };
+
+                var filasAfectadas = await _sqlConnection.ExecuteAsync(sql, parametros, commandType: CommandType.StoredProcedure);
+                return filasAfectadas;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al actualizar el diagnóstico: {ex.Message}");
+            }
         }
+
     }
-    
+
 }

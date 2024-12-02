@@ -2,7 +2,7 @@
 {
     public class Medico_EnfermedadDiagnostico
     {
-        public int id_Paciente { get; set; }
+        public string nombre { get; set; }
         public string fase_Enfermedad { get; set; }
         public string notas_Diagnostico { get; set; }
 

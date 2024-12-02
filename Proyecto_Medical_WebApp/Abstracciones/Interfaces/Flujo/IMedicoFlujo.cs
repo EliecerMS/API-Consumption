@@ -12,7 +12,7 @@ namespace Abstracciones.Interfaces.Flujo
         Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(int medicoId);
 
         Task<Medico_EnfermedadDiagnostico> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico);
-        Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento);
+        Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento, int id_Paciente);
         Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medicacion_Paciente);
         Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion);
 

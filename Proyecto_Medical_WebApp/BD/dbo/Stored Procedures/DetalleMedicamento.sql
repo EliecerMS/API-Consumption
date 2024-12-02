@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE DetalleMedicamento
+﻿CREATE PROCEDURE [dbo].[DetalleMedicamento]
     @id_Medicamento INT,
     @id_Paciente INT
 AS

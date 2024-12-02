@@ -2,7 +2,7 @@
 {
     public class Medico_PacienteMedicamento
     {
-
+        public int Id { get; set; }
         public string NombrePaciente { get; set; }
         public string NombreMedicamento { get; set; }
 
