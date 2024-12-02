@@ -106,5 +106,16 @@ namespace DA.Dapper
                 throw new Exception("Error obteniendo los pacientes y sus medicamentos de la BD");
             }
         }
+
+        public async Task<int> EditarDiagnosticoPaciente(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico)
+        {
+            string sql = @"ActualizarDiagnostico";
+            EnfermedadDiagnosticoBD? resultadoDiagnostico = await ObtenerEnfermedadDiagnostico(id_EnferDiagnostico);
+            if (resultadoDiagnostico == null)
+                return 0;
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new { id_EnferDiagnostico = id_EnferDiagnostico, fase_Diagnostico = enfermedadDiagnostico.fase_Enfermedad, notas = enfermedadDiagnostico.notas_Diagnostico });
+            return resultadoConsulta;
+        }
     }
+    
 }

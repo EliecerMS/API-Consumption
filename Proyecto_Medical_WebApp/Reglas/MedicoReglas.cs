@@ -16,7 +16,7 @@ namespace Reglas
 
         public EnfermedadDiagnosticoBD DarFomartoEnfermedadDiagnostico(EnfermedadDiagnosticoBD enfermedadDiagnostico)
         {
-            enfermedadDiagnostico.nombre = enfermedadDiagnostico.nombre.ToUpper();
+            enfermedadDiagnostico.notas_Diagnostico = enfermedadDiagnostico.notas_Diagnostico.ToUpper();
             return enfermedadDiagnostico;
         }
 

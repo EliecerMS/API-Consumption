@@ -17,5 +17,8 @@ namespace Abstracciones.Interfaces.DA
 
         Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion);
 
+
+        Task<int> EditarDiagnosticoPaciente(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico);
+
     }
 }

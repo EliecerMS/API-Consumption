@@ -1,4 +1,5 @@
 ﻿using Abstracciones.Modelos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Abstracciones.Interfaces.Flujo
 {
@@ -14,5 +15,7 @@ namespace Abstracciones.Interfaces.Flujo
         Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento);
         Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medicacion_Paciente);
         Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion);
+
+        Task<int> EditarDiagnosticoPaciente(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico);
     }
 }

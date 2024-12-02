@@ -68,5 +68,12 @@ namespace Flujo
                 return PacienteMedicamentoSinFormato;
             return _formatoHelper.DarFormatoListaPacienteMedicamento(PacienteMedicamentoSinFormato);
         }
+
+        public async Task<int> EditarDiagnosticoPaciente(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico)
+        {
+            var resultado = await _medicoDA.EditarDiagnosticoPaciente(id_EnferDiagnostico, enfermedadDiagnostico);
+            return resultado;
+        }
+
     }
 }

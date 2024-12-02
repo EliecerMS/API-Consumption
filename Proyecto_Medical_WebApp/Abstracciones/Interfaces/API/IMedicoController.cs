@@ -17,5 +17,8 @@ namespace Abstracciones.Interfaces.API
 
         Task<IActionResult> EditarPesoAltura(int IdPaciente, Medico_PesoAltura pacienteInformacion);
 
+
+        Task<IActionResult> EditarDiagnostico(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico);
+
     }
 }

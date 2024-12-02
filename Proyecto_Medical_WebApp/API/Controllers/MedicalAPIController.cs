@@ -114,5 +114,13 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
+        [HttpPut("EditarDiagnostico/{id_EnferDiagnostico}")]
+        public async Task<IActionResult> EditarDiagnostico([FromRoute] int id_EnferDiagnostico, [FromBody] Medico_EnfermedadDiagnostico enfermedadDiagnostico)
+        {
+            var resultado = await _medicoFlujo.EditarDiagnosticoPaciente(id_EnferDiagnostico, enfermedadDiagnostico);
+            if (resultado == 0)
+                return BadRequest("El diagnostico del paciente a editar no existe");
+            return Ok(resultado);
+        }
     }
 }
