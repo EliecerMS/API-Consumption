@@ -75,5 +75,29 @@ namespace Flujo
             return resultado;
         }
 
+        public Task<IEnumerable<CitaDetallesBD>> ObtenerCitasPendientesPorMedico(int idMedico)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<CitaDetallesBD>> ObtenerCitasAtendidasPorMedico(int idMedico)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> EditarCita(int idCita, Medico_CitaEdicion citaEdicion)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<MedicamentoBD>> ObtenerListaMedicamentos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<MedicacionDetalladaBD>> ObtenerMedicacionesDetalladas()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

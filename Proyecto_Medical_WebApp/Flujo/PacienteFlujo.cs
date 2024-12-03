@@ -15,6 +15,16 @@ namespace Flujo
             _formatoHelper = formatoHelper;
         }
 
+        public Task<IEnumerable<CitaDetallesBD>> ObtenerCitasAtendidasPorPaciente(int idPaciente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<CitaDetallesBD>> ObtenerCitasPendientesPorPaciente(int idPaciente)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Paciente_DetallesPadecimiento> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico)
         {
             var detallesPadecimientoSinformato = await _pacienteDA.ObtenerPacienteDetallesPadecimiento(idPaciente, idEnfermedadDiagnostico, idCita, idMedico);

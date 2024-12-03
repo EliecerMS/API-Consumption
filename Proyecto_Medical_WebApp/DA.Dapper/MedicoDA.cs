@@ -196,6 +196,15 @@ namespace DA.Dapper
             }
         }
 
+        public Task<int> EditarCita(int idCita, Medico_CitaEdicion citaEdicion)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<MedicacionDetalladaBD>> ObtenerMedicacionesDetalladas()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
