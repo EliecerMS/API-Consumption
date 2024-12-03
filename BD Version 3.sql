@@ -25,7 +25,6 @@ GO
 
 CREATE TABLE [Enfermedad_Diagnostico] (
   [id_EnferDiagnostico] integer PRIMARY KEY,
-  [id_Paciente] uniqueidentifier NOT NULL,
   [id_Cita] integer NOT NULL,
   [id_Enfermedad] integer NOT NULL,
   [notas_Diagnostico] nvarchar(MAX) NOT NULL,
