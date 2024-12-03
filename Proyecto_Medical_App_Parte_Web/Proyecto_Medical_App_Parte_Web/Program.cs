@@ -1,7 +1,17 @@
 using Abstracciones.Interfaces.Reglas;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Reglas;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Configuración Autenticación
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/cuenta/Login";
+        options.LogoutPath = "/cuenta/Logout";
+        options.AccessDeniedPath = "/cuenta/Accesodenegado";
+    });
 
 // Add services to the container.
 builder.Services.AddRazorPages();
