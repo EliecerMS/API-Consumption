@@ -67,7 +67,8 @@ CREATE TABLE [Persona] (
   [email] nvarchar(50) NOT NULL,
   [telefono] nvarchar(50) NOT NULL,
   [edad] nvarchar(50) NOT NULL,
-  [identificacion] nvarchar(50) NOT NULL
+  [identificacion] nvarchar(50) NOT NULL,
+  [rol] int NOT NULL
 )
 GO
 
