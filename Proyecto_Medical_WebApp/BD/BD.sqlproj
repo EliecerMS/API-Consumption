@@ -73,10 +73,10 @@
     <Build Include="dbo\Stored Procedures\PacienteObtenerPadecimientos.sql" />
     <Build Include="dbo\Stored Procedures\PacienteDetallesPadecimiento.sql" />
     <Build Include="dbo\Stored Procedures\PacienteDetallesMedicacion.sql" />
-    <Build Include="dbo\Stored Procedures\ObtenerEnfermedadDiagnostico.sql" />
     <Build Include="dbo\Stored Procedures\DetallesPaciente.sql" />
-    <Build Include="dbo\Stored Procedures\DetalleMedicamento.sql" />
-    <Build Include="dbo\Stored Procedures\ObtenerPacientesMedicamentos.sql" />
-    <Build Include="dbo\Stored Procedures\ActualizarDiagnostico.sql" />
+    <Build Include="dbo\Tables\Persona.sql" />
+    <Build Include="dbo\Stored Procedures\ObtenerDatosPaciente.sql" />
+    <Build Include="dbo\Stored Procedures\EditarPesoAlturaPaciente.sql" />
+    <Build Include="dbo\Stored Procedures\EditarDatosPersonalesPaciente.sql" />
   </ItemGroup>
 </Project>

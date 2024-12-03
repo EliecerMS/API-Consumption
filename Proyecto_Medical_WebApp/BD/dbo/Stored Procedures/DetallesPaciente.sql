@@ -38,7 +38,8 @@ BEGIN
 		emf.Enfermedad,
 		emf.fase_Enfermedad,
 		p.peso,      
-		p.estatura    
+		p.estatura,
+		p.id_Paciente
 	FROM UltimaMedicacionPreescrita ump
 	INNER JOIN EnfermedadMayorFase emf ON ump.rn = 1 AND emf.rn = 1
 	INNER JOIN Paciente p ON p.id_Paciente = @IdPaciente  
