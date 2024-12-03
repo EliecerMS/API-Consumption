@@ -24,6 +24,7 @@ namespace Abstracciones.Interfaces.DA
         Task<IEnumerable<CitaDetallesBD>> ObtenerCitasAtendidasPorMedico(int idMedico);
         Task<int> EditarCita(int idCita, Medico_CitaEdicion citaEdicion);
         Task<IEnumerable<MedicamentoBD>> ObtenerListaMedicamentos();
+        //comentario de ejemplo
         Task<IEnumerable<MedicacionDetalladaBD>> ObtenerMedicacionesDetalladas();
     }
 }
