@@ -24,5 +24,16 @@ namespace Reglas
         {
             return _configuracion.GetSection("ApiEndPoints").Get<APIEndPoint>().UrlBase;
         }
+        public string ObtenerMetodo(string seccion, string nombre)
+        {
+            var UrlBase = ObtenerUrlBase(seccion);
+            var Metodo = _configuracion.GetSection(seccion).Get<APIEndPoint>().Metodos.Where(m => m.Nombre == nombre).FirstOrDefault().Valor;
+            return $"{UrlBase}{Metodo}";
+        }
+
+        private string ObtenerUrlBase(string seccion)
+        {
+            return _configuracion.GetSection(seccion).Get<APIEndPoint>().UrlBase;
+        }
     }
 }
