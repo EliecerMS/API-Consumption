@@ -81,11 +81,11 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
-        [HttpGet("Paciente_ObtenerDetallesPadecimientoPorIds/{idPaciente}/{idEnfermedadDiagnostico}/{idCita}/{idMedico}/")]
-        public async Task<IActionResult> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico)
+        [HttpGet("Paciente_ObtenerDetallesPadecimientoPorIds/{idEnfermedadDiagnostico}/{idCita}/")] //cambiado el SP y probado por eliecer
+        public async Task<IActionResult> ObtenerPacienteDetallesPadecimiento(int idEnfermedadDiagnostico, int idCita)
         {
             _logger.LogInformation("Obteniendo detalles del padecimiento");
-            var resultado = await _pacienteFlujo.ObtenerPacienteDetallesPadecimiento(idPaciente, idEnfermedadDiagnostico, idCita, idMedico);
+            var resultado = await _pacienteFlujo.ObtenerPacienteDetallesPadecimiento(idEnfermedadDiagnostico, idCita);
             if (resultado == null)
                 return NotFound();
             return Ok(resultado);

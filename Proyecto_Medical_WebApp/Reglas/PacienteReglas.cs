@@ -10,14 +10,15 @@ namespace Reglas
         {
             pacienteDetallesMedicacion.NombreDoctor = pacienteDetallesMedicacion.NombreDoctor.ToUpper();
             pacienteDetallesMedicacion.NombrePadecimiento = pacienteDetallesMedicacion.NombrePadecimiento.ToUpper();
-            pacienteDetallesMedicacion.Intrucciones = pacienteDetallesMedicacion.Intrucciones.ToUpper();
+            pacienteDetallesMedicacion.Instrucciones = pacienteDetallesMedicacion.Instrucciones.ToUpper();
             pacienteDetallesMedicacion.Dosis = pacienteDetallesMedicacion.Dosis.ToUpper();
+            pacienteDetallesMedicacion.NombreMedicacion = pacienteDetallesMedicacion.NombreMedicacion.ToUpper();
 
 
-            DateTime fechaPreescripcionDiaHora = DateTime.ParseExact(pacienteDetallesMedicacion.FechaPreescripcion, "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            DateTime fechaPreescripcionDiaHora = DateTime.ParseExact(pacienteDetallesMedicacion.FechaPrescripcion, "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             DateOnly fechaPreescripcionSoloFecha = DateOnly.FromDateTime(fechaPreescripcionDiaHora);
             string fechaPreescripcionAString = fechaPreescripcionSoloFecha.ToString("yyyy-MM-dd");
-            pacienteDetallesMedicacion.FechaPreescripcion = fechaPreescripcionAString;
+            pacienteDetallesMedicacion.FechaPrescripcion = fechaPreescripcionAString;
 
             return pacienteDetallesMedicacion;
 

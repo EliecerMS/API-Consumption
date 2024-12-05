@@ -4,8 +4,8 @@ namespace Abstracciones.Interfaces.API
 {
     public interface IPacienteController
     {
-        Task<IActionResult> ObtenerPacienteDetallesMedicacion(int idMedicacionPaciente);
+        Task<IActionResult> ObtenerPacienteDetallesMedicacion(int idMedicacionPaciente); //cambiado el SP y probado por eliecer
 
-        Task<IActionResult> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico);
+        Task<IActionResult> ObtenerPacienteDetallesPadecimiento(int idEnfermedadDiagnostico, int idCita); //cambiado el SP y probado por eliecer
     }
 }

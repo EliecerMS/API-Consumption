@@ -17,15 +17,16 @@ namespace DA.Dapper
             _sqlConnection = _repositorioDapper.ObtenerRepositorioDapper();
         }
 
-        public async Task<Paciente_DetallesPadecimiento> ObtenerPacienteDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico)
+        public async Task<Paciente_DetallesPadecimiento> ObtenerPacienteDetallesPadecimiento(int idEnfermedadDiagnostico, int idCita) //cambiado el SP y probado por eliecer
         {
-            Paciente_DetallesPadecimiento? resultadoConsulta = await ObtenerDetallesPadecimiento(idPaciente, idEnfermedadDiagnostico, idCita, idMedico);
+            Paciente_DetallesPadecimiento? resultadoConsulta = await ObtenerDetallesPadecimiento(idEnfermedadDiagnostico, idCita);
             if (resultadoConsulta == null)
                 return null;
             return resultadoConsulta;
         }
 
-        public async Task<Paciente_DetallesMedicacion> PacienteObtenerDetallesMedicacion(int IdMedicacionPaciente)
+        public async Task<Paciente_DetallesMedicacion> PacienteObtenerDetallesMedicacion(int IdMedicacionPaciente) //cambiado el SP y probado por eliecer
+
         {
             Paciente_DetallesMedicacion? resultadoConsulta = await ObtenerDetallesMedicacion(IdMedicacionPaciente);
             if (resultadoConsulta == null)
@@ -33,17 +34,18 @@ namespace DA.Dapper
             return resultadoConsulta;
         }
 
-        private async Task<Paciente_DetallesMedicacion?> ObtenerDetallesMedicacion(int IdMedicacionPaciente)
+        private async Task<Paciente_DetallesMedicacion?> ObtenerDetallesMedicacion(int IdMedicacionPaciente) //cambiado el SP y probado por eliecer
+
         {
             string sql = @"PacienteDetallesMedicacion";
             var resultadoConsulta = await _sqlConnection.QueryAsync<Paciente_DetallesMedicacion>(sql, new { IdMedicacionPaciente = IdMedicacionPaciente });
             return resultadoConsulta.FirstOrDefault();
         }
 
-        private async Task<Paciente_DetallesPadecimiento?> ObtenerDetallesPadecimiento(int idPaciente, int idEnfermedadDiagnostico, int idCita, int idMedico)
+        private async Task<Paciente_DetallesPadecimiento?> ObtenerDetallesPadecimiento(int idEnfermedadDiagnostico, int idCita) //cambiado el SP y probado por eliecer
         {
             string sql = @"PacienteDetallesPadecimiento";
-            var resultadoConsulta = await _sqlConnection.QueryAsync<Paciente_DetallesPadecimiento>(sql, new { IdPaciente = idPaciente, IdEnferDiagnostico = idEnfermedadDiagnostico, IdCita = idCita, IdMedico = idMedico });
+            var resultadoConsulta = await _sqlConnection.QueryAsync<Paciente_DetallesPadecimiento>(sql, new { IdEnferDiagnostico = idEnfermedadDiagnostico, IdCita = idCita });
             return resultadoConsulta.FirstOrDefault();
         }
 
