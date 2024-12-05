@@ -8,6 +8,6 @@
 
     public class PacientesPadecimientosBD : Medico_PacientesPadecimientos
     {
-        public int idEnfermedadDiagnostico { get; set; }
+        public int IdEnfermedadDiagnostico { get; set; }
     }
 }

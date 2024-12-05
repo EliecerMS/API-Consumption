@@ -5,11 +5,11 @@ namespace Abstracciones.Interfaces.API
 {
     public interface IMedicoController
     {
-        Task<IActionResult> ObtenerPacientesMedico(int medicoId);
+        Task<IActionResult> ObtenerPacientesMedico(Guid medicoId); //cambiado el SP y probado por eliecer
 
-        Task<IActionResult> ObtenerDetallesPacientePorId(int idPaciente);
+        Task<IActionResult> ObtenerDetallesPacientePorId(Guid idPaciente); //cambiado el SP y probado por eliecer
 
-        Task<IActionResult> ObtenerPacientesYPadecimientos(int medicoId);
+        Task<IActionResult> ObtenerPacientesYPadecimientos(Guid medicoId); //cambiado el SP y probado por eliecer
 
         Task<IActionResult> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico);
         Task<IActionResult> ObtenerMedicamento(int id_Medicamento, int id_Paciente);

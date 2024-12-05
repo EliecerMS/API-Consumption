@@ -2,8 +2,6 @@
 using Abstracciones.Interfaces.Flujo;
 using Abstracciones.Modelos;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
-using System.Data;
 
 namespace API.Controllers
 {
@@ -33,7 +31,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerDetallesPacientePorId/{idPaciente}")]
-        public async Task<IActionResult> ObtenerDetallesPacientePorId(int idPaciente)
+        public async Task<IActionResult> ObtenerDetallesPacientePorId(Guid idPaciente)
         {
             _logger.LogInformation("Obteniendo detalles del paciente");
             var resultado = await _medicoFlujo.ObtenerDetallesPaciente(idPaciente);
@@ -93,10 +91,10 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
-        
+
 
         [HttpGet("Medico_ObtenerListaPacientes/{idMedico}")]
-        public async Task<IActionResult> ObtenerPacientesMedico(int idMedico)
+        public async Task<IActionResult> ObtenerPacientesMedico(Guid idMedico)
         {
             _logger.LogInformation("Obteniendo pacientes");
             var resultado = await _medicoFlujo.ObtenerListaPacientes(idMedico);
@@ -106,7 +104,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerListaPacientesYPadecimientos/{idMedico}")]
-        public async Task<IActionResult> ObtenerPacientesYPadecimientos(int idMedico)
+        public async Task<IActionResult> ObtenerPacientesYPadecimientos(Guid idMedico)
         {
             _logger.LogInformation("Obteniendo pacientes y padecimientos");
             var resultado = await _medicoFlujo.ObtenerListaPacientesYPadecimientos(idMedico);

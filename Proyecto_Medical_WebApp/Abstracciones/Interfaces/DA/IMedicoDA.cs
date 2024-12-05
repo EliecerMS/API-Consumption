@@ -4,11 +4,11 @@ namespace Abstracciones.Interfaces.DA
 {
     public interface IMedicoDA
     {
-        Task<IEnumerable<PacientesMedicoBD>> ObtenerListaPacientes(int medicoId);
+        Task<IEnumerable<PacientesMedicoBD>> ObtenerListaPacientes(Guid medicoId); //cambiado el SP y probado por eliecer
 
-        Task<Medico_DetallesPaciente> ObtenerDetallesPaciente(int IdPaciente);
+        Task<Medico_DetallesPaciente> ObtenerDetallesPaciente(Guid IdPaciente); //cambiado el SP y probado por eliecer
 
-        Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(int medicoId);
+        Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(Guid medicoId); //cambiado el SP y probado por eliecer
 
         Task<EnfermedadDiagnosticoBD> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico);
         Task<MedicamentoBD> ObtenerDetalleMedicamento(int id_Medicamento, int id_Paciente);

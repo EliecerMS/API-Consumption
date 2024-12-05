@@ -21,7 +21,7 @@ namespace Flujo
             return resultado;
         }
 
-        public async Task<Medico_DetallesPaciente> ObtenerDetallesPaciente(int IdPaciente)
+        public async Task<Medico_DetallesPaciente> ObtenerDetallesPaciente(Guid IdPaciente) //cambiado el SP y probado por eliecer
         {
             var detallesPacienteSinformato = await _medicoDA.ObtenerDetallesPaciente(IdPaciente);
             if (detallesPacienteSinformato == null)
@@ -37,7 +37,7 @@ namespace Flujo
             return _formatoHelper.DarFormatoEnfermedadDiagnostico(enfermedadDiagnosticoSinformato);
         }
 
-        public async Task<IEnumerable<PacientesMedicoBD>> ObtenerListaPacientes(int idMedico)
+        public async Task<IEnumerable<PacientesMedicoBD>> ObtenerListaPacientes(Guid idMedico) //cambiado el SP y probado por eliecer
         {
             var pacientesSinformato = await _medicoDA.ObtenerListaPacientes(idMedico);
             if (!pacientesSinformato.Any())
@@ -45,7 +45,7 @@ namespace Flujo
             return _formatoHelper.DarFormatoListaPacientes(pacientesSinformato);
         }
 
-        public async Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(int medicoId)
+        public async Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(Guid medicoId) //cambiado el SP y probado por eliecer
         {
             var pacientesYPadecimientosSinformato = await _medicoDA.ObtenerListaPacientesYPadecimientos(medicoId);
             if (!pacientesYPadecimientosSinformato.Any())

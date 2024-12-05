@@ -17,7 +17,7 @@ namespace DA.Dapper
             _sqlConnection = _repositorioDapper.ObtenerRepositorioDapper();
         }
 
-        public async Task<Medico_DetallesPaciente> ObtenerDetallesPaciente(int IdPaciente)
+        public async Task<Medico_DetallesPaciente> ObtenerDetallesPaciente(Guid IdPaciente) //cambiado el SP y probado por eliecer
         {
             Medico_DetallesPaciente? resultadoConsulta = await ObtenerDetalles(IdPaciente);
             if (resultadoConsulta == null)
@@ -25,14 +25,14 @@ namespace DA.Dapper
             return resultadoConsulta;
         }
 
-        private async Task<Medico_DetallesPaciente?> ObtenerDetalles(int IdPaciente)
+        private async Task<Medico_DetallesPaciente?> ObtenerDetalles(Guid IdPaciente) //cambiado el SP y probado por eliecer
         {
             string sql = @"DetallesPaciente";
             var resultadoConsulta = await _sqlConnection.QueryAsync<Medico_DetallesPaciente>(sql, new { IdPaciente = IdPaciente });
             return resultadoConsulta.FirstOrDefault();
         }
 
-        public async Task<IEnumerable<PacientesMedicoBD>> ObtenerListaPacientes(int idMedico)
+        public async Task<IEnumerable<PacientesMedicoBD>> ObtenerListaPacientes(Guid idMedico) //cambiado el SP y probado por eliecer
         {
             try
             {
@@ -47,7 +47,7 @@ namespace DA.Dapper
             }
         }
 
-        public async Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(int medicoId)
+        public async Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(Guid medicoId) //cambiado el SP y probado por eliecer
         {
             try
             {
@@ -110,7 +110,7 @@ namespace DA.Dapper
                 string sql = "ObtenerPacientesMedicamentos";
                 var resultadoConsulta = await _sqlConnection.QueryAsync<PacienteMedicamentoBD>(
                     sql,
-                    new { id_Medico = id_Medico }, 
+                    new { id_Medico = id_Medico },
                     commandType: CommandType.StoredProcedure
                 );
                 return resultadoConsulta;
