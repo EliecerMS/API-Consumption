@@ -31,7 +31,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerDetallesPacientePorId/{idPaciente}")]
-        public async Task<IActionResult> ObtenerDetallesPacientePorId(Guid idPaciente)
+        public async Task<IActionResult> ObtenerDetallesPacientePorId(Guid idPaciente) //cambiado el SP y probado por eliecer
         {
             _logger.LogInformation("Obteniendo detalles del paciente");
             var resultado = await _medicoFlujo.ObtenerDetallesPaciente(idPaciente);
@@ -94,7 +94,7 @@ namespace API.Controllers
 
 
         [HttpGet("Medico_ObtenerListaPacientes/{idMedico}")]
-        public async Task<IActionResult> ObtenerPacientesMedico(Guid idMedico)
+        public async Task<IActionResult> ObtenerPacientesMedico(Guid idMedico) //cambiado el SP y probado por eliecer
         {
             _logger.LogInformation("Obteniendo pacientes");
             var resultado = await _medicoFlujo.ObtenerListaPacientes(idMedico);
@@ -104,7 +104,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerListaPacientesYPadecimientos/{idMedico}")]
-        public async Task<IActionResult> ObtenerPacientesYPadecimientos(Guid idMedico)
+        public async Task<IActionResult> ObtenerPacientesYPadecimientos(Guid idMedico) //cambiado el SP y probado por eliecer
         {
             _logger.LogInformation("Obteniendo pacientes y padecimientos");
             var resultado = await _medicoFlujo.ObtenerListaPacientesYPadecimientos(idMedico);
