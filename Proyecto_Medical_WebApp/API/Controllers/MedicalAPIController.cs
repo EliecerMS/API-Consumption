@@ -282,6 +282,16 @@ namespace API.Controllers
             }
         }
 
+        [HttpGet("Paciente_ObtenerListaPadecimientos")]
+        public async Task<IActionResult> ObtenerPacienteListaPadecimientos(Guid idPaciente) // agregado y probado por eliecer
+        {
+            _logger.LogInformation("Obteniendo padecimientos");
+            var resultado = await _pacienteFlujo.PacienteObtenerListaPadecimientos(idPaciente);
+            if (!resultado.Any())
+                return NoContent();
+            return Ok(resultado);
+        }
+
 
     }
 }

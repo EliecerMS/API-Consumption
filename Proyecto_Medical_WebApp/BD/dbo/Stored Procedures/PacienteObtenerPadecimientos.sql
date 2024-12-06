@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE PacienteObtenerPadecimientos 
-	@IdPaciente int
+	@IdPaciente uniqueidentifier
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -7,19 +7,18 @@ BEGIN
 	SET NOCOUNT ON;
 
     SELECT 
-    ED.id_EnferDiagnostico AS IdDiagnostico,
+    ED.id_EnferDiagnostico, 
     E.nombre AS NombreEnfermedad,
-    ED.fecha_Diagnostico AS FechaDiagnostico,
+    ED.fecha_Diagnostico,
     C.motivo AS MotivoCita,
-    C.id_Cita AS IdCita,
-    C.id_Medico AS IdMedico
-FROM 
+    C.id_Cita
+	FROM 
     Enfermedad_Diagnostico ED
-JOIN 
+	INNER JOIN 
     Enfermedad E ON ED.id_Enfermedad = E.id_Enfermedad
-JOIN 
-    Cita C ON ED.id_Cita = C.id_Cita
-WHERE 
-    ED.id_Paciente = @IdPaciente;
+	INNER JOIN 
+    Cita C ON ED.id_Cita = C.id_Cita  
+	WHERE 
+    C.id_Paciente = @IdPaciente;  
 
 END

@@ -84,5 +84,20 @@ namespace DA.Dapper
                 throw new Exception($"Error al obtener citas atendidas del paciente: {ex.Message}");
             }
         }
+
+        public async Task<IEnumerable<PacientePadecimientosBD>> PacienteObtenerListaPadecimientos(Guid IdPaciente) // agregado y probado por eliecer
+        {
+            try
+            {
+                string sql = @"PacienteObtenerPadecimientos";
+                var resultadoConsulta = await _sqlConnection.QueryAsync<PacientePadecimientosBD>(sql, new { IdPaciente = IdPaciente });
+                return resultadoConsulta;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error obteniendo los detalles de padecimientos");
+            }
+        }
     }
 }

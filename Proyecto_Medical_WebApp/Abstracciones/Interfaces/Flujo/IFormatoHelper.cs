@@ -20,6 +20,8 @@ namespace Abstracciones.Interfaces.Flujo
         public Paciente_DetallesMedicacion DarFomartoPacienteDetallesMedicacion(Paciente_DetallesMedicacion pacienteDetallesMedicacion);
 
         public Paciente_DetallesPadecimiento DarFomartoPacienteDetallesPadecimiento(Paciente_DetallesPadecimiento pacienteDetallesPadecimiento);
-      
+
+        IEnumerable<PacientePadecimientosBD> DarFormatoListaPadecimientosPaciente(IEnumerable<PacientePadecimientosBD> pacientePadecimientosSinFormato); // agregado por eliecer
+
     }
 }

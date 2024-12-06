@@ -41,5 +41,13 @@ namespace Flujo
                 return null;
             return _formatoHelper.DarFomartoPacienteDetallesMedicacion(detallesMedicacionSinformato);
         }
+
+        public async Task<IEnumerable<PacientePadecimientosBD>> PacienteObtenerListaPadecimientos(Guid IdPaciente) // agregado y probado por eliecer
+        {
+            var padecimientosSinFormato = await _pacienteDA.PacienteObtenerListaPadecimientos(IdPaciente);
+            if (!padecimientosSinFormato.Any())
+                return padecimientosSinFormato;
+            return _formatoHelper.DarFormatoListaPadecimientosPaciente(padecimientosSinFormato);
+        }
     }
 }

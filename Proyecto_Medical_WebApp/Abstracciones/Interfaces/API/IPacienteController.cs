@@ -7,5 +7,7 @@ namespace Abstracciones.Interfaces.API
         Task<IActionResult> ObtenerPacienteDetallesMedicacion(int idMedicacionPaciente); //cambiado el SP y probado por eliecer
 
         Task<IActionResult> ObtenerPacienteDetallesPadecimiento(int idEnfermedadDiagnostico, int idCita); //cambiado el SP y probado por eliecer
+
+        Task<IActionResult> ObtenerPacienteListaPadecimientos(Guid idPaciente); // agregado y probado por eliecer
     }
 }

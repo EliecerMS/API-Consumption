@@ -7,5 +7,7 @@ namespace Abstracciones.Interfaces.Reglas
         public Paciente_DetallesMedicacion DarFomartoPacienteDetallesMedicacion(Paciente_DetallesMedicacion pacienteDetallesMedicacion);
 
         public Paciente_DetallesPadecimiento DarFomartoPacienteDetallesPadecimiento(Paciente_DetallesPadecimiento pacienteDetallesPadecimiento);
+
+        public PacientePadecimientosBD DarFomartoPacientePadecimiento(PacientePadecimientosBD pacientePadecimiento); // agregado y probado por eliecer
     }
 }

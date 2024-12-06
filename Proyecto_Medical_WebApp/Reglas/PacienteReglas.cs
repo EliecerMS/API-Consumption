@@ -35,5 +35,18 @@ namespace Reglas
 
             return pacienteDetallesPadecimiento;
         }
+
+        public PacientePadecimientosBD DarFomartoPacientePadecimiento(PacientePadecimientosBD pacientePadecimiento)// agregado y probado por eliecer
+        {
+            pacientePadecimiento.NombreEnfermedad = pacientePadecimiento.NombreEnfermedad.ToUpper();
+            pacientePadecimiento.MotivoCita = pacientePadecimiento.MotivoCita.ToUpper();
+
+            DateTime fechaDiagnosticoDiaHora = DateTime.ParseExact(pacientePadecimiento.fecha_Diagnostico, "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            DateOnly fechaDiagnosticoSoloFecha = DateOnly.FromDateTime(fechaDiagnosticoDiaHora);
+            string fechaDiagnosticoAString = fechaDiagnosticoSoloFecha.ToString("yyyy-MM-dd");
+            pacientePadecimiento.fecha_Diagnostico = fechaDiagnosticoAString;
+
+            return pacientePadecimiento;
+        }
     }
 }

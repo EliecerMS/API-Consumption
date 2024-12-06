@@ -91,7 +91,17 @@ namespace Flujo.Helpers
             return resultadoConFormato;
         }
 
-        
+        public IEnumerable<PacientePadecimientosBD> DarFormatoListaPadecimientosPaciente(IEnumerable<PacientePadecimientosBD> pacientePadecimientosSinFormato) //agregado y probado por eliecer
+        {
+            List<PacientePadecimientosBD> resultadoConFormato = new List<PacientePadecimientosBD>();
+
+            foreach (var pacientePadecimiento in pacientePadecimientosSinFormato)
+            {
+                resultadoConFormato.Add(_pacienteReglas.DarFomartoPacientePadecimiento(pacientePadecimiento));
+
+            }
+            return resultadoConFormato;
+        }
     }
 
 }
