@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto_Medical_App_Parte_Web", "Proyecto_Medical_App_Parte_Web\Proyecto_Medical_App_Parte_Web.csproj", "{ADA0AC5B-F856-44F5-8FA1-113DD34C8B8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proyecto_Medical_App_Parte_Web", "Proyecto_Medical_App_Parte_Web\Proyecto_Medical_App_Parte_Web.csproj", "{ADA0AC5B-F856-44F5-8FA1-113DD34C8B8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstracciones", "Abstracciones\Abstracciones.csproj", "{1988F1FC-7620-4246-873E-96D6402DACC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstracciones", "Abstracciones\Abstracciones.csproj", "{1988F1FC-7620-4246-873E-96D6402DACC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reglas", "Reglas\Reglas.csproj", "{7713DC99-B7B6-420C-8B19-7B7D80322120}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reglas", "Reglas\Reglas.csproj", "{7713DC99-B7B6-420C-8B19-7B7D80322120}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
