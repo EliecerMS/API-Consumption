@@ -12,6 +12,6 @@
 
     public class PacientesMedicoBD : Medico_PacientesMedico
     {
-        public int id_Paciente { get; set; }
+        public Guid id_Paciente { get; set; }
     }
 }

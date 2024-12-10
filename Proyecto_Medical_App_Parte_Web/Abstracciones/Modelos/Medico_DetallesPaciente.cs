@@ -7,6 +7,6 @@
         public string fase_Enfermedad { get; set; }
         public int peso { get; set; }
         public int estatura { get; set; }
-        public int id_Paciente { get; set; }
+        public Guid id_Paciente { get; set; }
     }
 }

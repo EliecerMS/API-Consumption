@@ -21,7 +21,7 @@ namespace Proyecto_Medical_App_Parte_Web.Pages.Medico.Pacientes
         {
             _configuracion = configuracion;
         }
-        public async Task<ActionResult> OnGet(int? id)
+        public async Task<ActionResult> OnGet(Guid? id)
         {
             if (id == null)
                 return NotFound();

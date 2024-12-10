@@ -1,0 +1,70 @@
+﻿@page
+@model Proyecto_Medical_App_Parte_Web.Pages.Paciente.Diagnosticos.IndexModel
+@{
+}
+
+<h1>Mis diagnosticos</h1>
+
+@if (Model.padecimientos == null || !Model.padecimientos.Any())
+{
+    <div class="alert alert-warning">
+        No hay padecimientos que mostrar
+    </div>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(modelo => modelo.padecimientos[0].id_EnferDiagnostico)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelo => modelo.padecimientos[0].id_Cita)
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Fecha Diagnostico
+                </th>
+                <th>
+                    Motivo Cita
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var padecimiento in Model.padecimientos)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelo => padecimiento.id_EnferDiagnostico)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => padecimiento.id_Cita)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => padecimiento.NombreEnfermedad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => padecimiento.fecha_Diagnostico)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => padecimiento.MotivoCita)
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-primary" asp-page="./DetallesDiagnostico" 
+                        asp-route-id="@padecimiento.id_Cita"
+                           asp-route-idEnferDiagnostico="@padecimiento.id_EnferDiagnostico"><i class="bi bi-pencil-fill"></i></a>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}

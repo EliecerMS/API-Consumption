@@ -282,7 +282,7 @@ namespace API.Controllers
             }
         }
 
-        [HttpGet("Paciente_ObtenerListaPadecimientos")]
+        [HttpGet("Paciente_ObtenerListaPadecimientos/{idPaciente}")]
         public async Task<IActionResult> ObtenerPacienteListaPadecimientos(Guid idPaciente) // agregado y probado por eliecer
         {
             _logger.LogInformation("Obteniendo padecimientos");

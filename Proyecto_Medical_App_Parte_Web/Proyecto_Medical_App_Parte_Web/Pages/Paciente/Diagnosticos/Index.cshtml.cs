@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net;
 using System.Text.Json;
 
-namespace Proyecto_Medical_App_Parte_Web.Pages.Medico.Diagnosticos
+namespace Proyecto_Medical_App_Parte_Web.Pages.Paciente.Diagnosticos
 {
     public class IndexModel : PageModel
     {
         private IConfiguracion _configuracion;
 
-        public List<PacientesPadecimientosBD> pacientesDiagnosticos { get; set; } = default!;
+        public List<PacientePadecimientosBD> padecimientos { get; set; } = default!;
 
         public IndexModel(IConfiguracion configuracion)
         {
@@ -19,9 +19,9 @@ namespace Proyecto_Medical_App_Parte_Web.Pages.Medico.Diagnosticos
 
         public async Task OnGetAsync()
         {
-            string endpoint = _configuracion.ObtenerMetodo("MostrarListaPacientesYPadecimientos");
+            string endpoint = _configuracion.ObtenerMetodo("MostrarListaPadecimientosPaciente");
             var cliente = new HttpClient();
-            var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endpoint, "E9D88A88-0FB1-4A95-A4BB-A5E1DBA7D30E")); // probando con ids de medico
+            var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endpoint, "C4133D19-EE29-4E71-9D98-50F02475BBD2")); // probando con id de paciente
 
             try
             {
@@ -32,12 +32,12 @@ namespace Proyecto_Medical_App_Parte_Web.Pages.Medico.Diagnosticos
                 {
                     var resultado = await respuesta.Content.ReadAsStringAsync();
                     var opciones = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                    pacientesDiagnosticos = JsonSerializer.Deserialize<List<PacientesPadecimientosBD>>(resultado, opciones) ?? new List<PacientesPadecimientosBD>();
+                    padecimientos = JsonSerializer.Deserialize<List<PacientePadecimientosBD>>(resultado, opciones) ?? new List<PacientePadecimientosBD>();
                 }
             }
             catch (HttpRequestException ex)
             {
-                pacientesDiagnosticos = new List<PacientesPadecimientosBD>();
+                padecimientos = new List<PacientePadecimientosBD>();
             }
         }
     }

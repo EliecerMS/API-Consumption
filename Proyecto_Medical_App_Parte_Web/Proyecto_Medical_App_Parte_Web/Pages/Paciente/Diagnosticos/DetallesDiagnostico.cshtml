@@ -1,0 +1,47 @@
+﻿@page
+@model Proyecto_Medical_App_Parte_Web.Pages.Paciente.Diagnosticos.DetallesDiagnosticoModel
+@{
+}
+
+<h1>Detalles Diagnostico</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label class="control-label" asp-for="detallePadecimiento.NombreDoctor"></label>
+        <input class="form-control" asp-for="detallePadecimiento.NombreDoctor" />
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="detallePadecimiento.EmailDoctor"></label>
+        <input class="form-control" asp-for="detallePadecimiento.EmailDoctor" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="detallePadecimiento.NombreEnfermedad"></label>
+        <input class="form-control" asp-for="detallePadecimiento.NombreEnfermedad" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="detallePadecimiento.DosisMedicacion"></label>
+        <input class="form-control" asp-for="detallePadecimiento.DosisMedicacion" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="detallePadecimiento.InstruccionesMedicamento"></label>
+        <input class="form-control" asp-for="detallePadecimiento.InstruccionesMedicamento" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="detallePadecimiento.FaseEnfermedad"></label>
+        <input class="form-control" asp-for="detallePadecimiento.FaseEnfermedad" />
+    </div>
+
+    <div class="form-group">
+        <a class="btn btn-primary" asp-page="./Index">Regresar</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
