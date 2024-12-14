@@ -205,6 +205,72 @@ namespace DA.Dapper
         {
             throw new NotImplementedException();
         }
+
+        public async Task<int> EliminarMedicacionPaciente(int idMedicacionPaciente) //agregado por eliecer
+        {
+            string sql = @"EliminarMedicacionPaciente";
+            MedicacionPacienteMapping? resultadoConsultaMedicacion = await ObtenerMedicacionPaciente(idMedicacionPaciente);
+            if (resultadoConsultaMedicacion == null)
+                return 0;
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new { IdMedPaciente = idMedicacionPaciente });
+            return resultadoConsulta;
+        }
+
+        public async Task<MedicacionPacienteMapping?> ObtenerMedicacionPaciente(int idMedicacionPaciente) //agregado por eliecer
+        {
+            string sql = @"MedicoObtenerMedicacionDelPaciente";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<MedicacionPacienteMapping>(sql, new { IdMedPaciente = idMedicacionPaciente });
+            return resultadoConsulta.FirstOrDefault();
+        }
+
+        public async Task<int> EliminarPadecimientoPaciente(int idEnferDiagnostico) //agregado por eliecer
+        {
+            string sql = @"EliminarPadecimientoPaciente";
+            EnfermedaDiagnosticoMapping? resultadoConsultaPadecimiento = await ObtenerPadecimientoPaciente(idEnferDiagnostico);
+            if (resultadoConsultaPadecimiento == null)
+                return 0;
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new { IdEnferDiagnostico = idEnferDiagnostico });
+            return resultadoConsulta;
+        }
+
+        public async Task<EnfermedaDiagnosticoMapping?> ObtenerPadecimientoPaciente(int idEnferDiagnostico) //agregado por eliecer
+        {
+            string sql = @"MedicoObtenerDiagnosticoDelPaciente";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<EnfermedaDiagnosticoMapping>(sql, new { IdEnferDiagnostico = idEnferDiagnostico });
+            return resultadoConsulta.FirstOrDefault();
+        }
+
+        public async Task<int> CrearEnfermedadDiagnostico(EnfermedaDiagnosticoMapping enfermedadDiagnostico) // agregado por eliecer
+        {
+            string sql = @"AgregarEnfermedaDiagnostico";
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new
+            {
+                idEnferDiagnostico = enfermedadDiagnostico.id_EnferDiagnostico,
+                idCita = enfermedadDiagnostico.id_Cita,
+                idEnfermedad = enfermedadDiagnostico.id_Enfermedad,
+                notasDiagnostico = enfermedadDiagnostico.notas_Diagnostico,
+                faseEnfermedad = enfermedadDiagnostico.fase_Enfermedad,
+                fechaDiagnostico = enfermedadDiagnostico.fecha_Diagnostico
+            });
+
+            return resultadoConsulta;
+        }
+
+        public async Task<int> CrearPacienteMedicacion(MedicacionPacienteMapping medicacionPaciente) // agregado por eliecer
+        {
+            string sql = @"AgregarMedicacionPaciente";
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new
+            {
+                idMedicacionPaciente = medicacionPaciente.id_Medicacion_Paciente,
+                idMedicamento = medicacionPaciente.id_Medicamento,
+                idCita = medicacionPaciente.id_Cita,
+                dosis = medicacionPaciente.dosis,
+                instrucciones = medicacionPaciente.intrucciones,
+                fechaPreesctrito = medicacionPaciente.fecha_Preesctrito
+            });
+
+            return resultadoConsulta;
+        }
     }
 
 }

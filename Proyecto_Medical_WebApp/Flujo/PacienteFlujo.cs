@@ -49,5 +49,33 @@ namespace Flujo
                 return padecimientosSinFormato;
             return _formatoHelper.DarFormatoListaPadecimientosPaciente(padecimientosSinFormato);
         }
+
+        public async Task<int> EliminarCitaPendiente(int idCita) // agregado y probado por eliecer
+        {
+            var resultado = await _pacienteDA.EliminarCitaPendiente(idCita);
+            return resultado;
+        }
+
+        public async Task<CitaMapping> ObtenerCita(int IdCita) // agregado por eliecer
+        {
+            var citaResultado = await _pacienteDA.ObtenerCita(IdCita);
+            if (citaResultado == null)
+                return null;
+            return citaResultado;
+        }
+
+        public async Task<Guid> EliminarPerfil(Guid idPersona) // agregado por eliecer
+        {
+            var resultado = await _pacienteDA.EliminarPerfil(idPersona);
+            return resultado;
+        }
+
+        public async Task<Persona> ObtenerPersona(Guid idPersona) // agregado por eliecer
+        {
+            var personaResultado = await _pacienteDA.ObtenerPersona(idPersona);
+            if (personaResultado == null)
+                return null;
+            return personaResultado;
+        }
     }
 }

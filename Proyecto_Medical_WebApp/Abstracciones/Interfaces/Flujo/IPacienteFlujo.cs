@@ -11,5 +11,11 @@ namespace Abstracciones.Interfaces.Flujo
         Task<IEnumerable<CitaDetallesBD>> ObtenerCitasPendientesPorPaciente(int idPaciente);
 
         Task<IEnumerable<CitaDetallesBD>> ObtenerCitasAtendidasPorPaciente(int idPaciente);
+
+        Task<int> EliminarCitaPendiente(int idCita); // agregado y probado por eliecer
+        Task<CitaMapping> ObtenerCita(int IdCita);  // agregadopor eliecer
+        Task<Guid> EliminarPerfil(Guid idPersona); // agregadopor eliecer
+
+        Task<Persona> ObtenerPersona(Guid idPersona); // agregadopor eliecer
     }
 }

@@ -99,5 +99,39 @@ namespace DA.Dapper
                 throw new Exception("Error obteniendo los detalles de padecimientos");
             }
         }
+
+        public async Task<int> EliminarCitaPendiente(int idCita) // agregado y probado por eliecer
+        {
+            string sql = @"EliminarCitaNoAtendida";
+            CitaMapping? resultadoConsultaCita = await ObtenerCita(idCita);
+            if (resultadoConsultaCita == null)
+                return 0;
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new { IdCita = idCita });
+            return resultadoConsulta;
+        }
+
+        public async Task<CitaMapping?> ObtenerCita(int idCita) // agregado y probado por eliecer
+        {
+            string sql = @"ObtenerCita";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<CitaMapping>(sql, new { IdCita = idCita });
+            return resultadoConsulta.FirstOrDefault();
+        }
+
+        public async Task<Guid> EliminarPerfil(Guid idPersona) // agregado por eliecer
+        {
+            string sql = @"EliminarPerfil";
+            Persona? resultadoConsultaPersona = await ObtenerPersona(idPersona);
+            if (resultadoConsultaPersona == null)
+                return Guid.Empty;
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<Guid>(sql, new { IdPersona = idPersona });
+            return resultadoConsulta;
+        }
+
+        public async Task<Persona?> ObtenerPersona(Guid idPersona) // agregado por eliecer
+        {
+            string sql = @"ObtenerPersona";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<Persona>(sql, new { IdPersona = idPersona });
+            return resultadoConsulta.FirstOrDefault();
+        }
     }
 }

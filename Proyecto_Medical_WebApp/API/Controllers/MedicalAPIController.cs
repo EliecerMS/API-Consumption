@@ -31,7 +31,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerDetallesPacientePorId/{idPaciente}")]
-        public async Task<IActionResult> ObtenerDetallesPacientePorId(Guid idPaciente) //cambiado el SP y probado por eliecer
+        public async Task<IActionResult> ObtenerDetallesPacientePorId([FromRoute] Guid idPaciente) //cambiado el SP y probado por eliecer
         {
             _logger.LogInformation("Obteniendo detalles del paciente");
             var resultado = await _medicoFlujo.ObtenerDetallesPaciente(idPaciente);
@@ -72,7 +72,7 @@ namespace API.Controllers
 
 
         [HttpGet("Paciente_ObtenerDetallesMedicacionPorIdMedicacion/{idMedicacionPaciente}")]
-        public async Task<IActionResult> ObtenerPacienteDetallesMedicacion(int idMedicacionPaciente)
+        public async Task<IActionResult> ObtenerPacienteDetallesMedicacion([FromRoute] int idMedicacionPaciente)
         {
             _logger.LogInformation("Obteniendo detalles del medicamento");
             var resultado = await _pacienteFlujo.PacienteObtenerDetallesMedicacion(idMedicacionPaciente);
@@ -94,7 +94,7 @@ namespace API.Controllers
 
 
         [HttpGet("Medico_ObtenerListaPacientes/{idMedico}")]
-        public async Task<IActionResult> ObtenerPacientesMedico(Guid idMedico) //cambiado el SP y probado por eliecer
+        public async Task<IActionResult> ObtenerPacientesMedico([FromRoute] Guid idMedico) //cambiado el SP y probado por eliecer
         {
             _logger.LogInformation("Obteniendo pacientes");
             var resultado = await _medicoFlujo.ObtenerListaPacientes(idMedico);
@@ -104,7 +104,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerListaPacientesYPadecimientos/{idMedico}")]
-        public async Task<IActionResult> ObtenerPacientesYPadecimientos(Guid idMedico) //cambiado el SP y probado por eliecer
+        public async Task<IActionResult> ObtenerPacientesYPadecimientos([FromRoute] Guid idMedico) //cambiado el SP y probado por eliecer
         {
             _logger.LogInformation("Obteniendo pacientes y padecimientos");
             var resultado = await _medicoFlujo.ObtenerListaPacientesYPadecimientos(idMedico);
@@ -114,7 +114,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerListaPacienteMedicamento/{id_Medico}")]
-        public async Task<IActionResult> ObtenerPacienteMedicamento(int id_Medico)
+        public async Task<IActionResult> ObtenerPacienteMedicamento([FromRoute] int id_Medico)
         {
             try
             {
@@ -283,7 +283,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Paciente_ObtenerListaPadecimientos/{idPaciente}")]
-        public async Task<IActionResult> ObtenerPacienteListaPadecimientos(Guid idPaciente) // agregado y probado por eliecer
+        public async Task<IActionResult> ObtenerPacienteListaPadecimientos([FromRoute] Guid idPaciente) // agregado y probado por eliecer
         {
             _logger.LogInformation("Obteniendo padecimientos");
             var resultado = await _pacienteFlujo.PacienteObtenerListaPadecimientos(idPaciente);
@@ -292,6 +292,90 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
+        [HttpDelete("Paciente_Medico-EliminarCitaPendiente/{idCita}")]
+        public async Task<IActionResult> EliminarCitaPendiente([FromRoute] int idCita) // agregado y probado por eliecer, se puede usar tanto para medico y paciente
+        {
+            var resultado = await _pacienteFlujo.EliminarCitaPendiente(idCita);
+            if (resultado == 0)
+                return BadRequest("Lo cita eliminar no exite");
+            return NoContent();
+        }
 
+        [HttpDelete("Medico_EliminarMedicacionPaciente/{idMedicacionPaciente}")]
+        public async Task<IActionResult> EliminarMedicacionPaciente([FromRoute] int idMedicacionPaciente) // agregado y probado por eliecer
+        {
+            var resultado = await _medicoFlujo.EliminarMedicacionPaciente(idMedicacionPaciente);
+            if (resultado == 0)
+                return BadRequest("Lo medicacion a eliminar no existe");
+            return NoContent();
+        }
+
+        [HttpDelete("Medico_EliminarPadecimientoPaciente/{idEnferDiagnostico}")]
+        public async Task<IActionResult> EliminarPadecimientoPaciente([FromRoute] int idEnferDiagnostico) // agregado y probado por eliecer
+        {
+            var resultado = await _medicoFlujo.EliminarPadecimientoPaciente(idEnferDiagnostico);
+            if (resultado == 0)
+                return BadRequest("El diagnostico a eliminar no existe");
+            return NoContent();
+        }
+
+        [HttpGet("ObtenerCita/{idCita}")]
+        public async Task<IActionResult> ObtenerCita([FromRoute] int idCita) // agregado por elicer, se usa el created actiojn de agregar cita, no se usa para mas que eso
+        {
+            var resultado = await _pacienteFlujo.ObtenerCita(idCita);
+            if (resultado == null)
+                return NotFound();
+            return Ok(resultado);
+        }
+
+        [HttpDelete("EliminarPerfil/{idPersona}")]
+        public async Task<IActionResult> EliminarPerfil(Guid idPersona)
+        {
+            var resultado = await _pacienteFlujo.EliminarPerfil(idPersona);
+            if (resultado == Guid.Empty)
+                return BadRequest("El diagnostico a eliminar no existe");
+            return NoContent();
+        }
+
+        [HttpGet("ObtenerPersona/{idPersona}")]
+        public async Task<IActionResult> ObtenerPersona([FromRoute] Guid idPersona) // agregado por elicer, se usa el created actiojn de creacion de perfil, no se usa para mas que eso
+        {
+            var resultado = await _pacienteFlujo.ObtenerPersona(idPersona);
+            if (resultado == null)
+                return NotFound();
+            return Ok(resultado);
+        }
+
+        [HttpPost("AgregarEnfermedadDiagnostico")]
+        public async Task<IActionResult> CrearEnfermedadDiagnostico([FromBody] EnfermedaDiagnosticoMapping enfermedadDiagnostico)
+        {
+            var resultado = await _medicoFlujo.CrearEnfermedadDiagnostico(enfermedadDiagnostico);
+            return CreatedAtAction(nameof(ObtenerPadecimientoPaciente), new { idEnferDiagnostico = resultado }, null);
+        }
+
+        [HttpPost("AgregarPacienteMedicacion")]
+        public async Task<IActionResult> CrearPacienteMedicacion([FromBody] MedicacionPacienteMapping medicacionPaciente)
+        {
+            var resultado = await _medicoFlujo.CrearPacienteMedicacion(medicacionPaciente);
+            return CreatedAtAction(nameof(ObtenerMedicacionPaciente), new { idMedicacionPaciente = resultado }, null);
+        }
+
+        [HttpGet("FullObtenerPadecimientoPaciente/{idEnferDiagnostico}")]
+        public async Task<IActionResult> ObtenerPadecimientoPaciente([FromRoute] int idEnferDiagnostico)
+        {
+            var resultado = await _medicoFlujo.ObtenerPadecimientoPaciente(idEnferDiagnostico);
+            if (resultado == null)
+                return NotFound();
+            return Ok(resultado);
+        }
+
+        [HttpGet("FullObtenerMedicacionPaciente/{idMedicacionPaciente}")]
+        public async Task<IActionResult> ObtenerMedicacionPaciente([FromRoute] int idMedicacionPaciente)
+        {
+            var resultado = await _medicoFlujo.ObtenerMedicacionPaciente(idMedicacionPaciente);
+            if (resultado == null)
+                return NotFound();
+            return Ok(resultado);
+        }
     }
 }
