@@ -74,7 +74,7 @@ namespace DA.Dapper
         }
 
 
-        public async Task<MedicamentoBD> ObtenerDetalleMedicamento(int id_Medicamento, int id_Paciente)
+        public async Task<MedicamentoBD> ObtenerDetalleMedicamento(int id_Medicamento, Guid id_Paciente)
         {
             string sql = @"DetalleMedicamento";
             var parametros = new { id_Medicamento, id_Paciente };
@@ -103,7 +103,7 @@ namespace DA.Dapper
             return resultadoConsulta.FirstOrDefault();
         }
 
-        public async Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medico)
+        public async Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(Guid id_Medico)
         {
             try
             {

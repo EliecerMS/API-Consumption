@@ -53,7 +53,7 @@ namespace Flujo
             return _formatoHelper.DarFormatoListaPacientesYPadecimientos(pacientesYPadecimientosSinformato);
         }
 
-        public async Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento, int id_Paciente)
+        public async Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento, Guid id_Paciente)
         {
             var medicamentoSinformato = await _medicoDA.ObtenerDetalleMedicamento(id_Medicamento, id_Paciente);
             if (medicamentoSinformato == null)
@@ -61,7 +61,7 @@ namespace Flujo
             return _formatoHelper.DarFormatoDetalleMedicamento(medicamentoSinformato);
         }
 
-        public async Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medicacion_Paciente)
+        public async Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(Guid id_Medicacion_Paciente)
         {
             var PacienteMedicamentoSinFormato = await _medicoDA.ObtenerListaPacienteMedicamento(id_Medicacion_Paciente);
             if (!PacienteMedicamentoSinFormato.Any())

@@ -60,7 +60,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerMedicamento/{id_Medicamento}/{id_Paciente}")]
-        public async Task<IActionResult> ObtenerMedicamento(int id_Medicamento, int id_Paciente)
+        public async Task<IActionResult> ObtenerMedicamento(int id_Medicamento, Guid id_Paciente)
         {
             _logger.LogInformation("Obteniendo medicamentos");
             var resultado = await _medicoFlujo.ObtenerDetalleMedicamento(id_Medicamento, id_Paciente);
@@ -114,7 +114,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerListaPacienteMedicamento/{id_Medico}")]
-        public async Task<IActionResult> ObtenerPacienteMedicamento(int id_Medico)
+        public async Task<IActionResult> ObtenerPacienteMedicamento(Guid id_Medico)
         {
             try
             {

@@ -11,9 +11,9 @@ namespace Abstracciones.Interfaces.DA
         Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(Guid medicoId); //cambiado el SP y probado por eliecer
 
         Task<EnfermedadDiagnosticoBD> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico);
-        Task<MedicamentoBD> ObtenerDetalleMedicamento(int id_Medicamento, int id_Paciente);
+        Task<MedicamentoBD> ObtenerDetalleMedicamento(int id_Medicamento, Guid id_Paciente);
 
-        Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medicacion_Paciente);
+        Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(Guid id_Medicacion_Paciente);
 
         Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion);
 

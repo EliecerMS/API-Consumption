@@ -11,8 +11,8 @@ namespace Abstracciones.Interfaces.Flujo
         Task<IEnumerable<PacientesPadecimientosBD>> ObtenerListaPacientesYPadecimientos(Guid medicoId); //cambiado el SP y probado por eliecer
 
         Task<Medico_EnfermedadDiagnostico> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico);
-        Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento, int id_Paciente);
-        Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(int id_Medicacion_Paciente);
+        Task<Medico_Medicamento> ObtenerDetalleMedicamento(int id_Medicamento, Guid id_Paciente);
+        Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(Guid id_Medicacion_Paciente);
         Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion);
 
         Task<int> EditarDiagnosticoPaciente(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico);
