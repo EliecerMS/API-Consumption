@@ -70,6 +70,16 @@
     <Build Include="dbo\Tables\Cita.sql" />
     <Build Include="dbo\Tables\Persona.sql" />
     <Build Include="dbo\Stored Procedures\EditarPesoAlturaPaciente.sql" />
+    <Build Include="dbo\Stored Procedures\ObtenerPersona.sql" />
+    <Build Include="dbo\Stored Procedures\ObtenerCita.sql" />
+    <Build Include="dbo\Stored Procedures\MedicoObtenerMedicacionDelPaciente.sql" />
+    <Build Include="dbo\Stored Procedures\MedicoObtenerDiagnosticoDelPaciente.sql" />
+    <Build Include="dbo\Stored Procedures\EliminarPerfil.sql" />
+    <Build Include="dbo\Stored Procedures\EliminarPadecimientoPaciente.sql" />
+    <Build Include="dbo\Stored Procedures\EliminarMedicacionPaciente.sql" />
+    <Build Include="dbo\Stored Procedures\EliminarCitaNoAtendida.sql" />
+    <Build Include="dbo\Stored Procedures\AgregarMedicacionPaciente.sql" />
+    <Build Include="dbo\Stored Procedures\AgregarEnfermedaDiagnostico.sql" />
     <Build Include="dbo\Stored Procedures\ObtenerPacientesMedicamentos.sql" />
     <Build Include="dbo\Stored Procedures\ObtenerEnfermedadDiagnostico.sql" />
     <Build Include="dbo\Stored Procedures\DetalleMedicamento.sql" />

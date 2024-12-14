@@ -26,5 +26,17 @@ namespace Abstracciones.Interfaces.DA
         Task<IEnumerable<MedicamentoBD>> ObtenerListaMedicamentos();
         //comentario de ejemplo
         Task<IEnumerable<MedicacionDetalladaBD>> ObtenerMedicacionesDetalladas();
+
+        Task<int> EliminarMedicacionPaciente(int idMedicacionPaciente); // agregado y probado por eliecer
+
+        Task<int> EliminarPadecimientoPaciente(int idEnferDiagnostico); // agregado y probado por eliecer
+
+        Task<int> CrearEnfermedadDiagnostico(EnfermedaDiagnosticoMapping enfermedadDiagnostico); // agregado y probado por eliecer
+
+        Task<int> CrearPacienteMedicacion(MedicacionPacienteMapping medicacionPaciente);// agregado y probado por eliecer
+
+        Task<EnfermedaDiagnosticoMapping> ObtenerPadecimientoPaciente(int idEnferDiagnostico); // agregado y probado por eliecer
+
+        Task<MedicacionPacienteMapping> ObtenerMedicacionPaciente(int idMedicacionPaciente); // agregado y probado por eliecer
     }
 }

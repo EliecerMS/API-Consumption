@@ -99,5 +99,45 @@ namespace Flujo
         {
             throw new NotImplementedException();
         }
+
+        public async Task<int> EliminarMedicacionPaciente(int idMedicacionPaciente) // agregado por eliecer
+        {
+            var resultado = await _medicoDA.EliminarMedicacionPaciente(idMedicacionPaciente);
+            return resultado;
+        }
+
+        public async Task<int> EliminarPadecimientoPaciente(int idEnferDiagnostico) // agregado por eliecer
+        {
+            var resultado = await _medicoDA.EliminarPadecimientoPaciente(idEnferDiagnostico);
+            return resultado;
+        }
+
+        public async Task<int> CrearEnfermedadDiagnostico(EnfermedaDiagnosticoMapping enfermedadDiagnostico) // agregado por eliecer
+        {
+            var resultado = await _medicoDA.CrearEnfermedadDiagnostico(enfermedadDiagnostico);
+            return resultado;
+        }
+
+        public async Task<int> CrearPacienteMedicacion(MedicacionPacienteMapping medicacionPaciente) // agregado por eliecer
+        {
+            var resultado = await _medicoDA.CrearPacienteMedicacion(medicacionPaciente);
+            return resultado;
+        }
+
+        public async Task<EnfermedaDiagnosticoMapping> ObtenerPadecimientoPaciente(int idEnferDiagnostico)
+        {
+            var resultadoPadecimientoPaciente = await _medicoDA.ObtenerPadecimientoPaciente(idEnferDiagnostico);
+            if (resultadoPadecimientoPaciente == null)
+                return null;
+            return resultadoPadecimientoPaciente;
+        }
+
+        public async Task<MedicacionPacienteMapping> ObtenerMedicacionPaciente(int idMedicacionPaciente)
+        {
+            var resultadoMedicacionPaciente = await _medicoDA.ObtenerMedicacionPaciente(idMedicacionPaciente);
+            if (resultadoMedicacionPaciente == null)
+                return null;
+            return resultadoMedicacionPaciente;
+        }
     }
 }

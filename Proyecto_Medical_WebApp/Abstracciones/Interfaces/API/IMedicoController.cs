@@ -20,5 +20,17 @@ namespace Abstracciones.Interfaces.API
 
         Task<IActionResult> EditarDiagnostico(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico);
 
+        Task<IActionResult> EliminarMedicacionPaciente(int idMedicacionPaciente); // agregado y probado por eliecer
+
+        Task<IActionResult> EliminarPadecimientoPaciente(int idEnferDiagnostico); // agregado y probado por eliecer
+
+        Task<IActionResult> CrearEnfermedadDiagnostico(EnfermedaDiagnosticoMapping enfermedadDiagnostico); // agregado y probado por eliecer
+
+        Task<IActionResult> CrearPacienteMedicacion(MedicacionPacienteMapping medicacionPaciente);// agregado y probado por eliecer
+
+        Task<IActionResult> ObtenerPadecimientoPaciente(int idEnferDiagnostico); // agregado y probado por eliecer
+
+        Task<IActionResult> ObtenerMedicacionPaciente(int idMedicacionPaciente); // agregado y probado por eliecer
+
     }
 }
