@@ -6,7 +6,7 @@
         public string nombre { get; set; }
         public string primer_Apellido { get; set; }
         public string segundo_Apellido { get; set; }
-        public string fecha_Nacimiento { get; set; }
+        public DateTime fecha_Nacimiento { get; set; }
         public string genero { get; set; }
         public string email { get; set; }
         public string telefono { get; set; }

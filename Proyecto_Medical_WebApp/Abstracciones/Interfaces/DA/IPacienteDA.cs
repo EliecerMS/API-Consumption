@@ -18,5 +18,7 @@ namespace Abstracciones.Interfaces.DA
         Task<Guid> EliminarPerfil(Guid idPersona); // agregado y probado por eliecer, se puede usar tanto para medico y paciente en el API
 
         Task<Persona> ObtenerPersona(Guid idPersona); // agregadopor eliecer
+
+        Task<Guid> CrearPerfil(Persona perfil);//agregado por eliecer, funciona para crear un perfil
     }
 }

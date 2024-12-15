@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[EditarPesoAlturaPaciente]
-@IdPaciente int,
+@IdPaciente uniqueidentifier,
 @PacientePeso int,
 @PacienteEstatura int
 AS

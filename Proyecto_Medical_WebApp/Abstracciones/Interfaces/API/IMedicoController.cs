@@ -15,7 +15,7 @@ namespace Abstracciones.Interfaces.API
         Task<IActionResult> ObtenerMedicamento(int id_Medicamento, Guid id_Paciente);
         Task<IActionResult> ObtenerPacienteMedicamento(Guid id_Medico);
 
-        Task<IActionResult> EditarPesoAltura(int IdPaciente, Medico_PesoAltura pacienteInformacion);
+        Task<IActionResult> EditarPesoAltura(Guid IdPaciente, Medico_PesoAltura pacienteInformacion);
 
 
         Task<IActionResult> EditarDiagnostico(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico);

@@ -21,7 +21,7 @@ namespace Proyecto_Medical_App_Parte_Web.Pages.Medico.Diagnosticos
         {
             string endpoint = _configuracion.ObtenerMetodo("MostrarListaPacientesYPadecimientos");
             var cliente = new HttpClient();
-            var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endpoint, "E9D88A88-0FB1-4A95-A4BB-A5E1DBA7D30E")); // probando con ids de medico
+            var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endpoint, "B6D8D3F0-3C94-47F7-A80D-FD46B8A1D1C0")); // probando con ids de medico
 
             try
             {

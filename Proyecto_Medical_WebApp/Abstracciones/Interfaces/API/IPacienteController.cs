@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Abstracciones.Modelos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Abstracciones.Interfaces.API
 {
@@ -17,6 +18,8 @@ namespace Abstracciones.Interfaces.API
         Task<IActionResult> EliminarPerfil(Guid idPersona); // agregado y probado por eliecer
 
         Task<IActionResult> ObtenerPersona(Guid idPersona); // agregado y probado por eliecer
+
+        Task<IActionResult> CrearPerfil(Persona perfil);// agregado por eliecer
 
     }
 }

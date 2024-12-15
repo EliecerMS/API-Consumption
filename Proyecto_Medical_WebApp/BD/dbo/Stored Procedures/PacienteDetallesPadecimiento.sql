@@ -1,15 +1,14 @@
-﻿CREATE PROCEDURE PacienteDetallesPadecimiento
-	@IdPaciente int,
+﻿CREATE PROCEDURE [dbo].[PacienteDetallesPadecimiento]
     @IdEnferDiagnostico int,
-    @IdCita int,
-    @IdMedico int
+    @IdCita int
+
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
- SELECT 
+    SELECT 
     CONCAT(p.nombre, ' ', p.primer_Apellido, ' ', p.segundo_Apellido) AS NombreDoctor,
     p.email AS EmailDoctor,
     E.nombre AS NombreEnfermedad,
@@ -32,4 +31,5 @@ LEFT JOIN
 WHERE 
     ED.id_EnferDiagnostico = @IdEnferDiagnostico  
     AND C.id_Cita = @IdCita;  
+
 END

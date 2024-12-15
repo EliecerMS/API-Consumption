@@ -86,17 +86,17 @@ namespace DA.Dapper
             return resultadoConsulta.FirstOrDefault();
         }
 
-        public async Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion)
+        public async Task<Guid> EditarPesoAlturaPaciente(Guid IdPaciente, Medico_PesoAltura pacienteInformacion)
         {
             string sql = @"EditarPesoAlturaPaciente";
             Paciente_InformacionBD? resultadoConsultaPaciente = await ObtenerPaciente(IdPaciente);
             if (resultadoConsultaPaciente == null)
-                return 0;
-            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new { IdPaciente = IdPaciente, PacienteEstatura = pacienteInformacion.estatura, PacientePeso = pacienteInformacion.peso });
+                return Guid.Empty;
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<Guid>(sql, new { IdPaciente = IdPaciente, PacienteEstatura = pacienteInformacion.estatura, PacientePeso = pacienteInformacion.peso });
             return resultadoConsulta;
         }
 
-        public async Task<Paciente_InformacionBD> ObtenerPaciente(int IdPaciente)
+        public async Task<Paciente_InformacionBD> ObtenerPaciente(Guid IdPaciente)
         {
             string sql = @"ObtenerDatosPaciente";
             var resultadoConsulta = await _sqlConnection.QueryAsync<Paciente_InformacionBD>(sql, new { IdPaciente = IdPaciente });

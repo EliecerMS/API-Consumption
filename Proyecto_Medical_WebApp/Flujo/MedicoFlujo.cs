@@ -15,7 +15,7 @@ namespace Flujo
             _formatoHelper = formatoHelper;
         }
 
-        public async Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion)
+        public async Task<Guid> EditarPesoAlturaPaciente(Guid IdPaciente, Medico_PesoAltura pacienteInformacion)
         {
             var resultado = await _medicoDA.EditarPesoAlturaPaciente(IdPaciente, pacienteInformacion);
             return resultado;

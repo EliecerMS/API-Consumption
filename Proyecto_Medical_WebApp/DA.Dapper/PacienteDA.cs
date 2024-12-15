@@ -133,5 +133,26 @@ namespace DA.Dapper
             var resultadoConsulta = await _sqlConnection.QueryAsync<Persona>(sql, new { IdPersona = idPersona });
             return resultadoConsulta.FirstOrDefault();
         }
+
+        public async Task<Guid> CrearPerfil(Persona perfil)
+        {
+            string sql = @"CrearPerfil";
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<Guid>(sql, new
+            {
+                idPersona = perfil.id_Persona,
+                nombre = perfil.nombre,
+                primerApellido = perfil.primer_Apellido,
+                segundoApellido = perfil.segundo_Apellido,
+                fechaNacimiento = perfil.fecha_Nacimiento,
+                genero = perfil.genero,
+                email = perfil.email,
+                telefono = perfil.telefono,
+                edad = perfil.edad,
+                identificacion = perfil.identificacion,
+                rol = perfil.rol
+            });
+
+            return resultadoConsulta;
+        }
     }
 }

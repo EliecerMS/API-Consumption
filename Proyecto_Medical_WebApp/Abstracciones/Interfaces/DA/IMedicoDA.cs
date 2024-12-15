@@ -15,7 +15,7 @@ namespace Abstracciones.Interfaces.DA
 
         Task<IEnumerable<PacienteMedicamentoBD>> ObtenerListaPacienteMedicamento(Guid id_Medicacion_Paciente);
 
-        Task<int> EditarPesoAlturaPaciente(int IdPaciente, Medico_PesoAltura pacienteInformacion);
+        Task<Guid> EditarPesoAlturaPaciente(Guid IdPaciente, Medico_PesoAltura pacienteInformacion);
 
 
         Task<int> EditarDiagnosticoPaciente(int id_EnferDiagnostico, Medico_EnfermedadDiagnostico enfermedadDiagnostico);
