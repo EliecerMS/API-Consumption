@@ -1,0 +1,86 @@
+﻿@page
+@model Proyecto_Medical_App_Parte_Web.Pages.RecepcionistaMedico.CrearPerfil.IndexModel
+@{
+}
+
+<form method="post">
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.id_Persona"></label>
+        <input class="form-control" asp-for="persona.id_Persona" />
+        <span class="text-danger" asp-validation-for="persona.id_Persona"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.nombre"></label>
+        <input class="form-control" asp-for="persona.nombre" />
+        <span class="text-danger" asp-validation-for="persona.nombre"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.primer_Apellido"></label>
+        <input class="form-control" asp-for="persona.primer_Apellido" />
+        <span class="text-danger" asp-validation-for="persona.primer_Apellido"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.segundo_Apellido"></label>
+        <input class="form-control" asp-for="persona.segundo_Apellido" />
+        <span class="text-danger" asp-validation-for="persona.segundo_Apellido"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.fecha_Nacimiento"></label>
+        <input class="form-control" asp-for="persona.fecha_Nacimiento" />
+        <span class="text-danger" asp-validation-for="persona.fecha_Nacimiento"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.genero"></label>
+        <input class="form-control" asp-for="persona.genero" />
+        <span class="text-danger" asp-validation-for="persona.genero"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.email"></label>
+        <input class="form-control" asp-for="persona.email" />
+        <span class="text-danger" asp-validation-for="persona.email"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.telefono"></label>
+        <input class="form-control" asp-for="persona.telefono" />
+        <span class="text-danger" asp-validation-for="persona.telefono"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.edad"></label>
+        <input class="form-control" asp-for="persona.edad" />
+        <span class="text-danger" asp-validation-for="persona.edad"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.identificacion"></label>
+        <input class="form-control" asp-for="persona.identificacion" />
+        <span class="text-danger" asp-validation-for="persona.identificacion"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="persona.rol"></label>
+        <input class="form-control" asp-for="persona.rol" />
+        <span class="text-danger" asp-validation-for="persona.rol"></span>
+    </div>
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <input type="submit" value="Agregar" class="btn btn-success" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

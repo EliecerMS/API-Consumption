@@ -42,7 +42,7 @@ namespace API.Controllers
 
 
         [HttpGet("Medico_ObtenerEnfermedadDiagnostico/{id_EnferDiagnostico}")]
-        public async Task<IActionResult> ObtenerEnfermedadDiagnostico(int id_EnferDiagnostico)
+        public async Task<IActionResult> ObtenerEnfermedadDiagnostico([FromRoute] int id_EnferDiagnostico)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerMedicamento/{id_Medicamento}/{id_Paciente}")]
-        public async Task<IActionResult> ObtenerMedicamento(int id_Medicamento, Guid id_Paciente)
+        public async Task<IActionResult> ObtenerMedicamento([FromRoute] int id_Medicamento, [FromRoute] Guid id_Paciente)
         {
             _logger.LogInformation("Obteniendo medicamentos");
             var resultado = await _medicoFlujo.ObtenerDetalleMedicamento(id_Medicamento, id_Paciente);
@@ -82,7 +82,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Paciente_ObtenerDetallesPadecimientoPorIds/{idEnfermedadDiagnostico}/{idCita}/")] //cambiado el SP y probado por eliecer
-        public async Task<IActionResult> ObtenerPacienteDetallesPadecimiento(int idEnfermedadDiagnostico, int idCita)
+        public async Task<IActionResult> ObtenerPacienteDetallesPadecimiento([FromRoute] int idEnfermedadDiagnostico, [FromRoute] int idCita)
         {
             _logger.LogInformation("Obteniendo detalles del padecimiento");
             var resultado = await _pacienteFlujo.ObtenerPacienteDetallesPadecimiento(idEnfermedadDiagnostico, idCita);
@@ -154,7 +154,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerCitasPendientes/{idMedico}")]
-        public async Task<IActionResult> ObtenerCitasPendientesPorMedico(int idMedico)
+        public async Task<IActionResult> ObtenerCitasPendientesPorMedico([FromRoute] int idMedico)
         {
             try
             {
@@ -172,7 +172,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Medico_ObtenerCitasAtendidas/{idMedico}")]
-        public async Task<IActionResult> ObtenerCitasAtendidasPorMedico(int idMedico)
+        public async Task<IActionResult> ObtenerCitasAtendidasPorMedico([FromRoute] int idMedico)
         {
             try
             {
@@ -190,7 +190,7 @@ namespace API.Controllers
         }
 
         [HttpPut("EditarCita/{idCita}")]
-        public async Task<IActionResult> EditarCita(int idCita, [FromBody] Medico_CitaEdicion citaEdicion)
+        public async Task<IActionResult> EditarCita([FromRoute] int idCita, [FromBody] Medico_CitaEdicion citaEdicion)
         {
             try
             {
@@ -211,7 +211,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Paciente_ObtenerCitasPendientes/{idPaciente}")]
-        public async Task<IActionResult> ObtenerCitasPendientesPorPaciente(int idPaciente)
+        public async Task<IActionResult> ObtenerCitasPendientesPorPaciente([FromRoute] int idPaciente)
         {
             try
             {
@@ -229,7 +229,7 @@ namespace API.Controllers
         }
 
         [HttpGet("Paciente_ObtenerCitasAtendidas/{idPaciente}")]
-        public async Task<IActionResult> ObtenerCitasAtendidasPorPaciente(int idPaciente)
+        public async Task<IActionResult> ObtenerCitasAtendidasPorPaciente([FromRoute] int idPaciente)
         {
             try
             {
@@ -329,7 +329,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("EliminarPerfil/{idPersona}")]
-        public async Task<IActionResult> EliminarPerfil(Guid idPersona)
+        public async Task<IActionResult> EliminarPerfil([FromRoute] Guid idPersona)
         {
             var resultado = await _pacienteFlujo.EliminarPerfil(idPersona);
             if (resultado == Guid.Empty)
