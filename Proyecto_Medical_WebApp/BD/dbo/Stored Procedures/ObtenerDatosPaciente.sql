@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE ObtenerDatosPaciente
-@IdPaciente int
+@IdPaciente uniqueidentifier
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -7,17 +7,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     SELECT [id_Paciente]
-      ,[nombre]
-      ,[primer_Apellido]
-      ,[segundo_Apellido]
-      ,[fecha_Nacimiento]
-      ,[genero]
-      ,[email]
-      ,[telefono]
-      ,[edad]
-      ,[peso]
+       [peso]
       ,[estatura]
-      ,[cedula]
   FROM [dbo].[Paciente]
   WHERE [id_Paciente] = @IdPaciente
 END

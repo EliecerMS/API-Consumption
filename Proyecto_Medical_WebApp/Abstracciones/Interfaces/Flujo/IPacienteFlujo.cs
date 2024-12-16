@@ -17,5 +17,7 @@ namespace Abstracciones.Interfaces.Flujo
         Task<Guid> EliminarPerfil(Guid idPersona); // agregadopor eliecer
 
         Task<Persona> ObtenerPersona(Guid idPersona); // agregadopor eliecer
+
+        Task<Guid> CrearPerfil(Persona perfil);//agregado por eliecer, funciona para crear un perfil
     }
 }

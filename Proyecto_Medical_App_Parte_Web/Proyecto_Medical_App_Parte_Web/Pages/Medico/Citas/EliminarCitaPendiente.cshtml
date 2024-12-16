@@ -1,0 +1,74 @@
+﻿@page
+@model Proyecto_Medical_App_Parte_Web.Pages.Medico.Citas.EliminarCitaPendienteModel
+@{
+}
+
+
+<h1>Detalles cita pendiente de atencion</h1>
+
+<h3>Desea realmente eliminar esta cita?</h3>
+<form method="post">
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.cita.id_Cita)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.cita.id_Cita)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.cita.id_Medico)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.cita.id_Medico)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.cita.id_Paciente)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.cita.id_Paciente)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.cita.notas_Cita)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.cita.notas_Cita)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.cita.atendida)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.cita.atendida)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.cita.especialidad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.cita.especialidad)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.cita.motivo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.cita.motivo)
+        </dd>
+    </row>
+    </row>
+    <div class="form-group">
+        <a class="btn btn-primary" asp-page="./Index">Cancelar</a>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </div>
+
+    <input type="hidden" asp-for="cita.id_Cita" />
+</form>

@@ -22,10 +22,10 @@ namespace API.Controllers
         }
 
         [HttpPut("EditarPesoAlturaPaciente/{IdPaciente}")]
-        public async Task<IActionResult> EditarPesoAltura([FromRoute] int IdPaciente, [FromBody] Medico_PesoAltura pacienteInformacion)
+        public async Task<IActionResult> EditarPesoAltura([FromRoute] Guid IdPaciente, [FromBody] Medico_PesoAltura pacienteInformacion)
         {
             var resultado = await _medicoFlujo.EditarPesoAlturaPaciente(IdPaciente, pacienteInformacion);
-            if (resultado == 0)
+            if (resultado == Guid.Empty)
                 return BadRequest("El paciente a editar no existe");
             return Ok(resultado);
         }
@@ -376,6 +376,13 @@ namespace API.Controllers
             if (resultado == null)
                 return NotFound();
             return Ok(resultado);
+        }
+
+        [HttpPost("CrearPerfil")]
+        public async Task<IActionResult> CrearPerfil([FromBody] Persona perfil)
+        {
+            var resultado = await _pacienteFlujo.CrearPerfil(perfil);
+            return CreatedAtAction(nameof(ObtenerPersona), new { idPersona = resultado }, null);
         }
     }
 }

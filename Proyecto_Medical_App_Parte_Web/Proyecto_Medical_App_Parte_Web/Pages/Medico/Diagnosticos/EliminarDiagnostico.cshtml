@@ -1,0 +1,66 @@
+﻿@page
+@model Proyecto_Medical_App_Parte_Web.Pages.Medico.Diagnosticos.EliminarDiagnosticoModel
+@{
+}
+
+<h1>Detalles diagnostico del paciente seleccionado</h1>
+
+<h3>Desea realmente eliminar esta diagnostico?</h3>
+<form method="post">
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.enfermedadDiagnostico.id_EnferDiagnostico)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.enfermedadDiagnostico.id_EnferDiagnostico)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.enfermedadDiagnostico.id_Cita)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.enfermedadDiagnostico.id_Cita)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.enfermedadDiagnostico.fase_Enfermedad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.enfermedadDiagnostico.fase_Enfermedad)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.enfermedadDiagnostico.fecha_Diagnostico)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.enfermedadDiagnostico.fecha_Diagnostico)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.enfermedadDiagnostico.id_Enfermedad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.enfermedadDiagnostico.id_Enfermedad)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.enfermedadDiagnostico.notas_Diagnostico)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.enfermedadDiagnostico.notas_Diagnostico)
+        </dd>
+    </row>
+    </row>
+    </row>
+    <div class="form-group">
+        <a class="btn btn-primary" asp-page="./Index">Cancelar</a>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </div>
+
+    <input type="hidden" asp-for="enfermedadDiagnostico.id_EnferDiagnostico" />
+</form>

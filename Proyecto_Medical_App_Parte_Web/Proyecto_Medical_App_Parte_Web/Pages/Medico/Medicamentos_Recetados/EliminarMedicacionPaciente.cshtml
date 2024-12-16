@@ -1,0 +1,67 @@
+﻿@page
+@model Proyecto_Medical_App_Parte_Web.Pages.Medico.Medicamentos_Recetados.EliminarMedicacionPacienteModel
+@{
+}
+
+
+<h1>Detalles de medicacion del paciente seleccionado</h1>
+
+<h3>Desea realmente eliminar esta medicacion para el paciente?</h3>
+<form method="post">
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.medicacionPaciente.id_Medicacion_Paciente)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.medicacionPaciente.id_Medicacion_Paciente)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.medicacionPaciente.id_Cita)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.medicacionPaciente.id_Cita)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.medicacionPaciente.id_Medicamento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.medicacionPaciente.id_Medicamento)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.medicacionPaciente.dosis)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.medicacionPaciente.dosis)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.medicacionPaciente.intrucciones)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.medicacionPaciente.intrucciones)
+        </dd>
+    </row>
+    <row>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.medicacionPaciente.fecha_Preesctrito)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.medicacionPaciente.fecha_Preesctrito)
+        </dd>
+    </row>
+    </row>
+    </row>
+    <div class="form-group">
+        <a class="btn btn-primary" asp-page="./Index">Cancelar</a>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </div>
+
+    <input type="hidden" asp-for="medicacionPaciente.id_Medicacion_Paciente" />
+</form>

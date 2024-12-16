@@ -77,5 +77,11 @@ namespace Flujo
                 return null;
             return personaResultado;
         }
+
+        public async Task<Guid> CrearPerfil(Persona perfil)
+        {
+            var resultado = await _pacienteDA.CrearPerfil(perfil);
+            return resultado;
+        }
     }
 }
