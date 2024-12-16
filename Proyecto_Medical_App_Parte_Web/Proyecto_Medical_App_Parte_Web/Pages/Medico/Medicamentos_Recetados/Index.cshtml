@@ -2,3 +2,57 @@
 @model Proyecto_Medical_App_Parte_Web.Pages.Medico.Medicamentos_Recetados.IndexModel
 @{
 }
+<h1>Pacientes y Medicamentos</h1>
+
+@if (Model.pacienteMedicamento == null || !Model.pacienteMedicamento.Any())
+{
+    <div class="alert alert-warning">
+        No hay pacientes que mostrar
+    </div>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(modelo => modelo.pacienteMedicamento[0].Id_Medicacion_Paciente)
+                </th>
+                <th>
+                    Paciente
+                </th>
+                <th>
+                    Medicamento
+                </th>
+
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var PacienteMedicamento in Model.pacienteMedicamento)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelo => PacienteMedicamento.Id_Medicacion_Paciente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => PacienteMedicamento.NombrePaciente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelo => PacienteMedicamento.NombreMedicamento)
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-primary" asp-page="./DetallesMedicacion" asp-route-id="@PacienteMedicamento.Id_Medicacion_Paciente" asp-route-id2="@PacienteMedicamento.Id"><i class="bi bi-pencil-fill"></i></a>
+
+                        <a type="button" class="btn btn-danger" asp-page="./DetallesMedicacion" asp-route-id="@PacienteMedicamento.Id_Medicacion_Paciente"><i class="bi bi-trash3-fill"></i></a>
+                    </td>
+                   
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}

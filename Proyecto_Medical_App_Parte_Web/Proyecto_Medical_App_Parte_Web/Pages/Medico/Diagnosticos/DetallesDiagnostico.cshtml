@@ -2,3 +2,46 @@
 @model Proyecto_Medical_App_Parte_Web.Pages.Medico.Diagnosticos.DetallesDiagnosticoModel
 @{
 }
+
+<h1>Detalles Diagnosticos</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label class="control-label" asp-for="diagnostico.id_EnferDiagnostico" style="display: none;"></label>
+        <input class="form-control" asp-for="diagnostico.id_EnferDiagnostico" style="display: none;" />
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="diagnostico.nombre"></label>
+        <input class="form-control" asp-for="diagnostico.nombre" />
+        <span class="text-danger" asp-validation-for="diagnostico.nombre"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="diagnostico.fase_Enfermedad"></label>
+        <input class="form-control" asp-for="diagnostico.fase_Enfermedad" />
+        <span class="text-danger" asp-validation-for="diagnostico.fase_Enfermedad"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="diagnostico.notas_Diagnostico"></label>
+        <input class="form-control" asp-for="diagnostico.notas_Diagnostico" />
+        <span class="text-danger" asp-validation-for="diagnostico.notas_Diagnostico"></span>
+    </div>
+
+
+ 
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <a class="btn btn-primary" asp-page="./Index">Regresar</a>
+        <input type="submit" value="Editar Diagnostico" class="btn btn-warning" />
+    </div>
+    </<input type="hidden" asp-for="diagnostico.id_EnferDiagnostico" />
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

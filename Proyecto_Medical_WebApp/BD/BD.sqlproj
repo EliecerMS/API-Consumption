@@ -90,5 +90,6 @@
     <Build Include="dbo\Stored Procedures\PacientesMedico.sql" />
     <Build Include="dbo\Stored Procedures\PacientesPadecimientos.sql" />
     <Build Include="dbo\Stored Procedures\CrearPerfil.sql" />
+    <Build Include="dbo\Stored Procedures\PacienteObtenerPadecimientos.sql" />
   </ItemGroup>
 </Project>

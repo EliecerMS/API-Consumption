@@ -6,6 +6,7 @@ BEGIN
     SET NOCOUNT ON;
 
     SELECT 
+        mp.id_Medicacion_Paciente AS id_Medicacion_Paciente,
         m.nombre AS NombreMedicamento,
         mp.dosis AS Dosis,
         mp.fecha_Preesctrito AS FechaPrescrito,

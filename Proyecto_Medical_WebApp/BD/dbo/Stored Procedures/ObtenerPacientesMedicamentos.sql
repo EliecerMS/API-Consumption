@@ -4,7 +4,9 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    SELECT 
+    SELECT  
+	    mp.id_Medicacion_Paciente AS Id_Medicacion_Paciente, 
+        pa.id_Paciente AS Id,   
         pe.nombre AS NombrePaciente,
         m.nombre AS NombreMedicamento
     FROM 
