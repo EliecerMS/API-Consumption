@@ -100,6 +100,30 @@ namespace Flujo
             throw new NotImplementedException();
         }
 
+        public async Task<int> AgregarEnfermedadDiagnostico(Medico_RegistroEnfDiagnostico enfermedadDiagnostico)
+        {
+            var resultado = await _medicoDA.AgregarEnfermedadDiagnostico(enfermedadDiagnostico);
+            return resultado;
+        }
+
+        public async Task<int> AgregarMedicacionPaciente(Medico_MedPaciente medicacionPaciente)
+        {
+            var resultado = await _medicoDA.AgregarMedicacionPaciente(medicacionPaciente);
+            return resultado;
+        }
+
+        public async Task<IEnumerable<Medico_ListaDoctores>> ObtenerListaDoctores()
+        {
+            var resultado = await _medicoDA.ObtenerListaDoctores();
+            return resultado;
+        }
+
+        public async Task<int> CrearCita(Medico_CrearCita nuevaCita)
+        {
+            var resultado = await _medicoDA.CrearCita(nuevaCita);
+            return resultado;
+        }
+
         public async Task<int> EliminarMedicacionPaciente(int idMedicacionPaciente) // agregado por eliecer
         {
             var resultado = await _medicoDA.EliminarMedicacionPaciente(idMedicacionPaciente);

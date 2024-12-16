@@ -26,6 +26,12 @@ namespace Abstracciones.Interfaces.DA
         Task<IEnumerable<MedicamentoBD>> ObtenerListaMedicamentos();
         //comentario de ejemplo
         Task<IEnumerable<MedicacionDetalladaBD>> ObtenerMedicacionesDetalladas();
+        Task<int> AgregarEnfermedadDiagnostico(Medico_RegistroEnfDiagnostico enfermedadDiagnostico);
+        Task<int> AgregarMedicacionPaciente(Medico_MedPaciente medicacionPaciente);
+        Task<IEnumerable<Medico_ListaDoctores>> ObtenerListaDoctores();
+        Task<int> CrearCita(Medico_CrearCita nuevaCita);
+
+
 
         Task<int> EliminarMedicacionPaciente(int idMedicacionPaciente); // agregado y probado por eliecer
 

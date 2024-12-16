@@ -22,6 +22,12 @@ namespace Abstracciones.Interfaces.Flujo
         Task<int> EditarCita(int idCita, Medico_CitaEdicion citaEdicion);
         Task<IEnumerable<MedicamentoBD>> ObtenerListaMedicamentos();
         Task<IEnumerable<MedicacionDetalladaBD>> ObtenerMedicacionesDetalladas();
+        Task<int> AgregarEnfermedadDiagnostico(Medico_RegistroEnfDiagnostico enfermedadDiagnostico);
+        Task<int> AgregarMedicacionPaciente(Medico_MedPaciente medicacionPaciente);
+        Task<IEnumerable<Medico_ListaDoctores>> ObtenerListaDoctores();
+        Task<int> CrearCita(Medico_CrearCita nuevaCita);
+
+
 
         Task<int> EliminarMedicacionPaciente(int idMedicacionPaciente); // agregado y probado por eliecer
 

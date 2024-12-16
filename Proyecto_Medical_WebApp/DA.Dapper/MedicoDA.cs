@@ -206,6 +206,30 @@ namespace DA.Dapper
             throw new NotImplementedException();
         }
 
+        public async Task<int> AgregarEnfermedadDiagnostico(Medico_RegistroEnfDiagnostico enfermedadDiagnostico)
+        {
+            string sql = @"AgregarEnfermedadDiagnostico";
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new { IdCita = enfermedadDiagnostico.IdCita, IdEnfermedad = enfermedadDiagnostico.IdEnfermedad, NotaDiagnostico = enfermedadDiagnostico.NotaDiagnostico, FaseEnfermedad = enfermedadDiagnostico.FaseEnfermedad, FechaDiagnostico = enfermedadDiagnostico.FechaDiagnostico});
+            return resultadoConsulta;
+        }
+
+        public async Task<int> AgregarMedicacionPaciente(Medico_MedPaciente medicacionPaciente)
+        {
+            string sql = @"AgregarMedicacionPaciente";
+            var resultadoConsulta = await _sqlConnection.ExecuteScalarAsync<int>(sql, new { IdMedicamento = medicacionPaciente.IdMedicamento, Dosis = medicacionPaciente.Dosis, Instrucciones = medicacionPaciente.Instrucciones, FechaPrescrita = medicacionPaciente.FechaPrescrita, IdPaciente = medicacionPaciente.IdPaciente, IdCita = medicacionPaciente.IdCita });
+            return resultadoConsulta;
+        }
+
+        public Task<IEnumerable<Medico_ListaDoctores>> ObtenerListaDoctores()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> CrearCita(Medico_CrearCita nuevaCita)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<int> EliminarMedicacionPaciente(int idMedicacionPaciente) //agregado por eliecer
         {
             string sql = @"EliminarMedicacionPaciente";

@@ -292,6 +292,17 @@ namespace API.Controllers
             return Ok(resultado);
         }
 
+        public async Task<IActionResult> AgregarEnfermedadDiagnostico(Medico_RegistroEnfDiagnostico diagnostico)
+        {
+            var resultado = await _medicoFlujo.AgregarEnfermedadDiagnostico(diagnostico);
+            return Ok(resultado); //Luego reemplazar por CreatedAtAction
+        }
+
+        public async Task<IActionResult> AgregarMedicacionPaciente(Medico_MedPaciente medicacion)
+        {
+            var resultado = await _medicoFlujo.AgregarMedicacionPaciente(medicacion);
+            return Ok(resultado); //Luego reemplazar por CreatedAtAction
+        }
         [HttpDelete("Paciente_Medico-EliminarCitaPendiente/{idCita}")]
         public async Task<IActionResult> EliminarCitaPendiente([FromRoute] int idCita) // agregado y probado por eliecer, se puede usar tanto para medico y paciente
         {
@@ -383,6 +394,17 @@ namespace API.Controllers
         {
             var resultado = await _pacienteFlujo.CrearPerfil(perfil);
             return CreatedAtAction(nameof(ObtenerPersona), new { idPersona = resultado }, null);
+        }
+        public async Task<IActionResult> ObtenerListaDoctores()
+        {
+            var resultado = await _medicoFlujo.ObtenerListaDoctores();
+            return Ok(resultado);
+        }
+
+        public async Task<IActionResult> CrearCita(Medico_CrearCita nuevaCita)
+        {
+            var resultado = await _medicoFlujo.CrearCita(nuevaCita);
+            return CreatedAtAction(nameof(CrearCita), new { id = resultado }, resultado);
         }
     }
 }
