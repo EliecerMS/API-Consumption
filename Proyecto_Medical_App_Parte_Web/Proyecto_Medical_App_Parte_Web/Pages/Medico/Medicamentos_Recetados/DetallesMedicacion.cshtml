@@ -2,3 +2,35 @@
 @model Proyecto_Medical_App_Parte_Web.Pages.Medico.Medicamentos_Recetados.DetallesMedicacionModel
 @{
 }
+<h1>Detalles Medicamentos</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label class="control-label" asp-for="detalleMedicamento.NombreMedicamento"></label>
+        <input class="form-control" asp-for="detalleMedicamento.NombreMedicamento" />
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="detalleMedicamento.Dosis"></label>
+        <input class="form-control" asp-for="detalleMedicamento.Dosis" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="detalleMedicamento.FechaPrescrito"></label>
+        <input class="form-control" asp-for="detalleMedicamento.FechaPrescrito" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="detalleMedicamento.Instrucciones"></label>
+        <input class="form-control" asp-for="detalleMedicamento.Instrucciones" />
+    </div>
+
+    <div class="form-group">
+        <a class="btn btn-primary" asp-page="./Index">Regresar</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
